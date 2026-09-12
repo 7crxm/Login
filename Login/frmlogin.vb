@@ -42,7 +42,7 @@
 
         End If
 
-        'Login credentials
+        'Login credentials 
         If (txtUsername.Text = "Timothy Agazon" AndAlso txtPassword.Text = "pogi123") Or
            (txtUsername.Text = "Kimberly Aliling" AndAlso txtPassword.Text = "monggoloid") Or
            (txtUsername.Text = "John Emmer Ablero" AndAlso txtPassword.Text = "bingot") Or
