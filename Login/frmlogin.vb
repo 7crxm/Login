@@ -46,7 +46,6 @@
         If (txtUsername.Text = "Timothy Agazon" AndAlso txtPassword.Text = "pogi123") Or
            (txtUsername.Text = "Kimberly Aliling" AndAlso txtPassword.Text = "monggoloid") Or
            (txtUsername.Text = "John Emmer Ablero" AndAlso txtPassword.Text = "bingot") Or
-           (txtUsername.Text = "Jessalyn Arsolong" AndAlso txtPassword.Text = "bonjing") Or
            (txtUsername.Text = "Raychelle Allapitan" AndAlso txtPassword.Text = "bading") Then
 
             MessageBox.Show("Welcome to Unicloth!",
