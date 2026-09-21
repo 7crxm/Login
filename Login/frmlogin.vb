@@ -16,7 +16,7 @@ Public Class frmLogin
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
 
         'Check if username is empty
-        If txtUsername.Text.Trim() = "" Then
+        If txtUsername.Text.Trim = "" Then
             MessageBox.Show("Please enter your username.",
                         "Unicloth",
                         MessageBoxButtons.OK,
@@ -26,7 +26,7 @@ Public Class frmLogin
         End If
 
         'Check if password is empty
-        If txtPassword.Text.Trim() = "" Then
+        If txtPassword.Text.Trim = "" Then
             MessageBox.Show("Please enter your password.",
                         "Unicloth",
                         MessageBoxButtons.OK,
@@ -35,20 +35,25 @@ Public Class frmLogin
             Exit Sub
         End If
 
-        ' Database Login configuration
-        Dim connString As String = "Server=localhost;Database=UniclothDB;Trusted_Connection=True;"
-        Dim query As String = "SELECT COUNT(*) FROM dbo.UniclothDB WHERE Username = @Username AND Password = @Password"
+        ' Centralized Connection setup pulling directly from modDatabase module
+        Dim query = "SELECT COUNT(*) FROM dbo.UniclothDB_Users WHERE Username = @Username AND Password = @Password"
 
-        Using conn As New SqlConnection(connString)
+
+        Using conn As New SqlConnection(modDatabase.ConnString)
             Using cmd As New SqlCommand(query, conn)
 
                 ' Pass data securely from the form fields
-                cmd.Parameters.AddWithValue("@Username", txtUsername.Text.Trim())
-                cmd.Parameters.AddWithValue("@Password", txtPassword.Text.Trim())
+                cmd.Parameters.AddWithValue("@Username", txtUsername.Text.Trim)
+                cmd.Parameters.AddWithValue("@Password", txtPassword.Text.Trim)
 
                 Try
                     conn.Open()
-                    Dim count As Integer = Convert.ToInt32(cmd.ExecuteScalar())
+                    Dim count = Convert.ToInt32(cmd.ExecuteScalar)
+
+                    ' Temporary hardcoded check for admin credentials
+                    If txtUsername.Text = "tim" AndAlso txtPassword.Text = "admin" Then
+                        count = 1
+                    End If
 
                     If count > 0 Then
                         MessageBox.Show("Welcome to Unicloth!",
@@ -56,12 +61,13 @@ Public Class frmLogin
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Information)
 
+
                         '====================
                         ' OPEN DASHBOARD FORM |
                         '====================
-                        Dim dashboard As New frmDashboard()
+                        Dim dashboard As New frmDashboard
                         dashboard.Show()
-                        Me.Hide()
+                        Hide()
                     Else
                         ' Fails if no username/password match is found in the database
                         MessageBox.Show("Invalid username or password.",
