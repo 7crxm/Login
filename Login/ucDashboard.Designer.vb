@@ -1,8 +1,8 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class frmDashboard
-    Inherits System.Windows.Forms.Form
+Partial Class ucDashboard
+    Inherits System.Windows.Forms.UserControl
 
-    'Form overrides dispose to clean up the component list.
+    'UserControl overrides dispose to clean up the component list.
     <System.Diagnostics.DebuggerNonUserCode()> _
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
@@ -22,20 +22,7 @@ Partial Class frmDashboard
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        pnlTopBar = New Panel()
-        lblTopSubtitle = New Label()
-        lblTopLogo = New Label()
-        pnlSidebar = New Panel()
-        btnLogout = New Button()
-        btnPlacement = New Button()
-        btnBuyingReturns = New Button()
-        btnSupplier = New Button()
-        btnItemsOUT = New Button()
-        btnItemsIN = New Button()
-        btnDashboard = New Button()
-        Label1 = New Label()
-        lblShopName = New Label()
-        pnlHome = New Panel()
+        pnlDashboard = New Panel()
         pnlPlacement = New Panel()
         lblPlacementStatus = New Label()
         lblPlacementInfo = New Label()
@@ -72,9 +59,7 @@ Partial Class frmDashboard
         lblItemsINTitle = New Label()
         lblWelcome = New Label()
         lblDashboardTitle = New Label()
-        pnlTopBar.SuspendLayout()
-        pnlSidebar.SuspendLayout()
-        pnlHome.SuspendLayout()
+        pnlDashboard.SuspendLayout()
         pnlPlacement.SuspendLayout()
         pnlTransactions.SuspendLayout()
         pnlSuppliers.SuspendLayout()
@@ -82,215 +67,22 @@ Partial Class frmDashboard
         pnlItemsIN.SuspendLayout()
         SuspendLayout()
         ' 
-        ' pnlTopBar
+        ' pnlDashboard
         ' 
-        pnlTopBar.BackColor = Color.FromArgb(CByte(16), CByte(16), CByte(22))
-        pnlTopBar.Controls.Add(lblTopSubtitle)
-        pnlTopBar.Controls.Add(lblTopLogo)
-        pnlTopBar.Location = New Point(0, 0)
-        pnlTopBar.Margin = New Padding(4, 3, 4, 3)
-        pnlTopBar.Name = "pnlTopBar"
-        pnlTopBar.Size = New Size(1200, 70)
-        pnlTopBar.TabIndex = 0
-        ' 
-        ' lblTopSubtitle
-        ' 
-        lblTopSubtitle.AutoSize = True
-        lblTopSubtitle.BackColor = Color.Transparent
-        lblTopSubtitle.Font = New Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        lblTopSubtitle.ForeColor = Color.FromArgb(CByte(161), CByte(161), CByte(170))
-        lblTopSubtitle.Location = New Point(24, 38)
-        lblTopSubtitle.Margin = New Padding(4, 0, 4, 0)
-        lblTopSubtitle.Name = "lblTopSubtitle"
-        lblTopSubtitle.Size = New Size(164, 13)
-        lblTopSubtitle.TabIndex = 1
-        lblTopSubtitle.Text = "UKAY-UKAY INVENTORY SYSTEM"
-        lblTopSubtitle.TextAlign = ContentAlignment.MiddleLeft
-        ' 
-        ' lblTopLogo
-        ' 
-        lblTopLogo.BackColor = Color.Transparent
-        lblTopLogo.Font = New Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        lblTopLogo.ForeColor = Color.FromArgb(CByte(168), CByte(85), CByte(247))
-        lblTopLogo.Location = New Point(24, 10)
-        lblTopLogo.Margin = New Padding(4, 0, 4, 0)
-        lblTopLogo.Name = "lblTopLogo"
-        lblTopLogo.Size = New Size(180, 35)
-        lblTopLogo.TabIndex = 0
-        lblTopLogo.Text = "UNICLOTH"
-        lblTopLogo.TextAlign = ContentAlignment.MiddleLeft
-        ' 
-        ' pnlSidebar
-        ' 
-        pnlSidebar.BackColor = Color.FromArgb(CByte(16), CByte(16), CByte(22))
-        pnlSidebar.Controls.Add(btnLogout)
-        pnlSidebar.Controls.Add(btnPlacement)
-        pnlSidebar.Controls.Add(btnBuyingReturns)
-        pnlSidebar.Controls.Add(btnSupplier)
-        pnlSidebar.Controls.Add(btnItemsOUT)
-        pnlSidebar.Controls.Add(btnItemsIN)
-        pnlSidebar.Controls.Add(btnDashboard)
-        pnlSidebar.Controls.Add(Label1)
-        pnlSidebar.Controls.Add(lblShopName)
-        pnlSidebar.Location = New Point(0, 70)
-        pnlSidebar.Name = "pnlSidebar"
-        pnlSidebar.Size = New Size(240, 630)
-        pnlSidebar.TabIndex = 1
-        ' 
-        ' btnLogout
-        ' 
-        btnLogout.BackColor = Color.FromArgb(CByte(16), CByte(16), CByte(22))
-        btnLogout.Cursor = Cursors.Hand
-        btnLogout.FlatAppearance.BorderSize = 0
-        btnLogout.FlatStyle = FlatStyle.Flat
-        btnLogout.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        btnLogout.ForeColor = Color.FromArgb(CByte(212), CByte(212), CByte(216))
-        btnLogout.Location = New Point(15, 547)
-        btnLogout.Name = "btnLogout"
-        btnLogout.Padding = New Padding(15, 0, 0, 0)
-        btnLogout.Size = New Size(210, 45)
-        btnLogout.TabIndex = 8
-        btnLogout.Text = "Logout"
-        btnLogout.TextAlign = ContentAlignment.MiddleLeft
-        btnLogout.UseVisualStyleBackColor = False
-        ' 
-        ' btnPlacement
-        ' 
-        btnPlacement.BackColor = Color.FromArgb(CByte(16), CByte(16), CByte(22))
-        btnPlacement.Cursor = Cursors.Hand
-        btnPlacement.FlatAppearance.BorderSize = 0
-        btnPlacement.FlatStyle = FlatStyle.Flat
-        btnPlacement.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        btnPlacement.ForeColor = Color.FromArgb(CByte(212), CByte(212), CByte(216))
-        btnPlacement.Location = New Point(15, 365)
-        btnPlacement.Name = "btnPlacement"
-        btnPlacement.Padding = New Padding(15, 0, 0, 0)
-        btnPlacement.Size = New Size(210, 45)
-        btnPlacement.TabIndex = 7
-        btnPlacement.Text = "Item Placement"
-        btnPlacement.TextAlign = ContentAlignment.MiddleLeft
-        btnPlacement.UseVisualStyleBackColor = False
-        ' 
-        ' btnBuyingReturns
-        ' 
-        btnBuyingReturns.BackColor = Color.FromArgb(CByte(16), CByte(16), CByte(22))
-        btnBuyingReturns.Cursor = Cursors.Hand
-        btnBuyingReturns.FlatAppearance.BorderSize = 0
-        btnBuyingReturns.FlatStyle = FlatStyle.Flat
-        btnBuyingReturns.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        btnBuyingReturns.ForeColor = Color.FromArgb(CByte(212), CByte(212), CByte(216))
-        btnBuyingReturns.Location = New Point(15, 315)
-        btnBuyingReturns.Name = "btnBuyingReturns"
-        btnBuyingReturns.Padding = New Padding(15, 0, 0, 0)
-        btnBuyingReturns.Size = New Size(210, 45)
-        btnBuyingReturns.TabIndex = 6
-        btnBuyingReturns.Text = "Buying and Returns"
-        btnBuyingReturns.TextAlign = ContentAlignment.MiddleLeft
-        btnBuyingReturns.UseVisualStyleBackColor = False
-        ' 
-        ' btnSupplier
-        ' 
-        btnSupplier.BackColor = Color.FromArgb(CByte(16), CByte(16), CByte(22))
-        btnSupplier.Cursor = Cursors.Hand
-        btnSupplier.FlatAppearance.BorderSize = 0
-        btnSupplier.FlatStyle = FlatStyle.Flat
-        btnSupplier.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        btnSupplier.ForeColor = Color.FromArgb(CByte(212), CByte(212), CByte(216))
-        btnSupplier.Location = New Point(15, 265)
-        btnSupplier.Name = "btnSupplier"
-        btnSupplier.Padding = New Padding(15, 0, 0, 0)
-        btnSupplier.Size = New Size(210, 45)
-        btnSupplier.TabIndex = 5
-        btnSupplier.Text = "Supplier Information"
-        btnSupplier.TextAlign = ContentAlignment.MiddleLeft
-        btnSupplier.UseVisualStyleBackColor = False
-        ' 
-        ' btnItemsOUT
-        ' 
-        btnItemsOUT.BackColor = Color.FromArgb(CByte(16), CByte(16), CByte(22))
-        btnItemsOUT.Cursor = Cursors.Hand
-        btnItemsOUT.FlatAppearance.BorderSize = 0
-        btnItemsOUT.FlatStyle = FlatStyle.Flat
-        btnItemsOUT.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        btnItemsOUT.ForeColor = Color.FromArgb(CByte(212), CByte(212), CByte(216))
-        btnItemsOUT.Location = New Point(15, 215)
-        btnItemsOUT.Name = "btnItemsOUT"
-        btnItemsOUT.Padding = New Padding(15, 0, 0, 0)
-        btnItemsOUT.Size = New Size(210, 45)
-        btnItemsOUT.TabIndex = 4
-        btnItemsOUT.Text = "Items OUT Handling"
-        btnItemsOUT.TextAlign = ContentAlignment.MiddleLeft
-        btnItemsOUT.UseVisualStyleBackColor = False
-        ' 
-        ' btnItemsIN
-        ' 
-        btnItemsIN.BackColor = Color.FromArgb(CByte(16), CByte(16), CByte(22))
-        btnItemsIN.Cursor = Cursors.Hand
-        btnItemsIN.FlatAppearance.BorderSize = 0
-        btnItemsIN.FlatStyle = FlatStyle.Flat
-        btnItemsIN.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        btnItemsIN.ForeColor = Color.FromArgb(CByte(212), CByte(212), CByte(216))
-        btnItemsIN.Location = New Point(15, 165)
-        btnItemsIN.Name = "btnItemsIN"
-        btnItemsIN.Padding = New Padding(15, 0, 0, 0)
-        btnItemsIN.Size = New Size(210, 45)
-        btnItemsIN.TabIndex = 3
-        btnItemsIN.Text = "Items IN Handling"
-        btnItemsIN.TextAlign = ContentAlignment.MiddleLeft
-        btnItemsIN.UseVisualStyleBackColor = False
-        ' 
-        ' btnDashboard
-        ' 
-        btnDashboard.BackColor = Color.FromArgb(CByte(139), CByte(92), CByte(246))
-        btnDashboard.Cursor = Cursors.Hand
-        btnDashboard.FlatAppearance.BorderSize = 0
-        btnDashboard.FlatStyle = FlatStyle.Flat
-        btnDashboard.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        btnDashboard.ForeColor = Color.White
-        btnDashboard.Location = New Point(15, 115)
-        btnDashboard.Name = "btnDashboard"
-        btnDashboard.Padding = New Padding(15, 0, 0, 0)
-        btnDashboard.Size = New Size(210, 45)
-        btnDashboard.TabIndex = 2
-        btnDashboard.Text = "Dashboard"
-        btnDashboard.TextAlign = ContentAlignment.MiddleLeft
-        btnDashboard.UseVisualStyleBackColor = False
-        ' 
-        ' Label1
-        ' 
-        Label1.Font = New Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label1.ForeColor = Color.FromArgb(CByte(113), CByte(113), CByte(122))
-        Label1.Location = New Point(27, 58)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(190, 20)
-        Label1.TabIndex = 1
-        Label1.Text = "THRIFT SHOP MANAGEMENT"
-        ' 
-        ' lblShopName
-        ' 
-        lblShopName.Font = New Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        lblShopName.ForeColor = Color.FromArgb(CByte(168), CByte(85), CByte(247))
-        lblShopName.Location = New Point(25, 25)
-        lblShopName.Name = "lblShopName"
-        lblShopName.Size = New Size(190, 35)
-        lblShopName.TabIndex = 0
-        lblShopName.Text = "UNICLOTH"
-        ' 
-        ' pnlHome
-        ' 
-        pnlHome.Controls.Add(pnlPlacement)
-        pnlHome.Controls.Add(lblPlacementTitle)
-        pnlHome.Controls.Add(pnlTransactions)
-        pnlHome.Controls.Add(lblRecentTitle)
-        pnlHome.Controls.Add(pnlSuppliers)
-        pnlHome.Controls.Add(pnlItemsOUT)
-        pnlHome.Controls.Add(pnlItemsIN)
-        pnlHome.Controls.Add(lblWelcome)
-        pnlHome.Controls.Add(lblDashboardTitle)
-        pnlHome.Location = New Point(240, 70)
-        pnlHome.Name = "pnlHome"
-        pnlHome.Size = New Size(960, 630)
-        pnlHome.TabIndex = 2
+        pnlDashboard.BackColor = Color.FromArgb(CByte(8), CByte(8), CByte(12))
+        pnlDashboard.Controls.Add(pnlPlacement)
+        pnlDashboard.Controls.Add(lblPlacementTitle)
+        pnlDashboard.Controls.Add(pnlTransactions)
+        pnlDashboard.Controls.Add(lblRecentTitle)
+        pnlDashboard.Controls.Add(pnlSuppliers)
+        pnlDashboard.Controls.Add(pnlItemsOUT)
+        pnlDashboard.Controls.Add(pnlItemsIN)
+        pnlDashboard.Controls.Add(lblWelcome)
+        pnlDashboard.Controls.Add(lblDashboardTitle)
+        pnlDashboard.Location = New Point(3, 3)
+        pnlDashboard.Name = "pnlDashboard"
+        pnlDashboard.Size = New Size(960, 630)
+        pnlDashboard.TabIndex = 3
         ' 
         ' pnlPlacement
         ' 
@@ -675,26 +467,16 @@ Partial Class frmDashboard
         lblDashboardTitle.TabIndex = 0
         lblDashboardTitle.Text = "DASHBOARD"
         ' 
-        ' frmDashboard
+        ' ucDashboard
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        BackColor = Color.FromArgb(CByte(8), CByte(8), CByte(12))
-        ClientSize = New Size(1184, 661)
-        Controls.Add(pnlHome)
-        Controls.Add(pnlSidebar)
-        Controls.Add(pnlTopBar)
-        FormBorderStyle = FormBorderStyle.FixedSingle
-        Margin = New Padding(4, 3, 4, 3)
-        MaximizeBox = False
-        Name = "frmDashboard"
-        StartPosition = FormStartPosition.CenterScreen
-        Text = "Unicloth - Dashboard"
-        pnlTopBar.ResumeLayout(False)
-        pnlTopBar.PerformLayout()
-        pnlSidebar.ResumeLayout(False)
-        pnlHome.ResumeLayout(False)
-        pnlHome.PerformLayout()
+        BackColor = Color.FromArgb(CByte(8), CByte(8), CByte(8))
+        Controls.Add(pnlDashboard)
+        Name = "ucDashboard"
+        Size = New Size(976, 645)
+        pnlDashboard.ResumeLayout(False)
+        pnlDashboard.PerformLayout()
         pnlPlacement.ResumeLayout(False)
         pnlPlacement.PerformLayout()
         pnlTransactions.ResumeLayout(False)
@@ -705,41 +487,12 @@ Partial Class frmDashboard
         ResumeLayout(False)
     End Sub
 
-    Friend WithEvents pnlTopBar As Panel
-    Friend WithEvents lblTopLogo As Label
-    Friend WithEvents lblTopSubtitle As Label
-    Friend WithEvents pnlSidebar As Panel
-    Friend WithEvents Label1 As Label
-    Friend WithEvents lblShopName As Label
-    Friend WithEvents btnDashboard As Button
-    Friend WithEvents btnItemsOUT As Button
-    Friend WithEvents btnItemsIN As Button
-    Friend WithEvents btnPlacement As Button
-    Friend WithEvents btnBuyingReturns As Button
-    Friend WithEvents btnSupplier As Button
-    Friend WithEvents btnLogout As Button
-    Friend WithEvents pnlHome As Panel
-    Friend WithEvents lblDashboardTitle As Label
-    Friend WithEvents pnlSuppliers As Panel
-    Friend WithEvents pnlItemsOUT As Panel
-    Friend WithEvents pnlItemsIN As Panel
-    Friend WithEvents lblWelcome As Label
-    Friend WithEvents lblItemsINDesc As Label
-    Friend WithEvents lblItemsINCount As Label
-    Friend WithEvents lblItemsINTitle As Label
-    Friend WithEvents lblSuppliersDesc As Label
-    Friend WithEvents lblSuppliersCount As Label
-    Friend WithEvents lblSuppliersTitle As Label
-    Friend WithEvents lblItemsOUTDesc As Label
-    Friend WithEvents lblItemsOUTCount As Label
-    Friend WithEvents lblItemsOUTTitle As Label
-    Friend WithEvents lblRecentTitle As Label
+    Friend WithEvents pnlDashboard As Panel
+    Friend WithEvents pnlPlacement As Panel
+    Friend WithEvents lblPlacementStatus As Label
+    Friend WithEvents lblPlacementInfo As Label
+    Friend WithEvents lblPlacementTitle As Label
     Friend WithEvents pnlTransactions As Panel
-    Friend WithEvents lblHeaderType As Label
-    Friend WithEvents lblHeaderItem As Label
-    Friend WithEvents lblItem1 As Label
-    Friend WithEvents lblHeaderDate As Label
-    Friend WithEvents lblHeaderQty As Label
     Friend WithEvents lblDate3 As Label
     Friend WithEvents lblQty3 As Label
     Friend WithEvents lblType3 As Label
@@ -751,8 +504,25 @@ Partial Class frmDashboard
     Friend WithEvents lblDate1 As Label
     Friend WithEvents lblQty1 As Label
     Friend WithEvents lblType1 As Label
-    Friend WithEvents lblPlacementTitle As Label
-    Friend WithEvents pnlPlacement As Panel
-    Friend WithEvents lblPlacementInfo As Label
-    Friend WithEvents lblPlacementStatus As Label
+    Friend WithEvents lblItem1 As Label
+    Friend WithEvents lblHeaderDate As Label
+    Friend WithEvents lblHeaderQty As Label
+    Friend WithEvents lblHeaderType As Label
+    Friend WithEvents lblHeaderItem As Label
+    Friend WithEvents lblRecentTitle As Label
+    Friend WithEvents pnlSuppliers As Panel
+    Friend WithEvents lblSuppliersDesc As Label
+    Friend WithEvents lblSuppliersCount As Label
+    Friend WithEvents lblSuppliersTitle As Label
+    Friend WithEvents pnlItemsOUT As Panel
+    Friend WithEvents lblItemsOUTDesc As Label
+    Friend WithEvents lblItemsOUTCount As Label
+    Friend WithEvents lblItemsOUTTitle As Label
+    Friend WithEvents pnlItemsIN As Panel
+    Friend WithEvents lblItemsINDesc As Label
+    Friend WithEvents lblItemsINCount As Label
+    Friend WithEvents lblItemsINTitle As Label
+    Friend WithEvents lblWelcome As Label
+    Friend WithEvents lblDashboardTitle As Label
+
 End Class
