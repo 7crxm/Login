@@ -1,9 +1,9 @@
-<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class ucItemsOut
     Inherits System.Windows.Forms.UserControl
 
     'UserControl overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -14,13 +14,9 @@ Partial Class ucItemsOut
         End Try
     End Sub
 
-    'Required by the Windows Form Designer
     Private components As System.ComponentModel.IContainer
 
-    'NOTE: The following procedure is required by the Windows Form Designer
-    'It can be modified using the Windows Form Designer.  
-    'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         pnlMain = New Panel()
         pnlSalesSummary = New Panel()
@@ -28,22 +24,11 @@ Partial Class ucItemsOut
         lblSalesSummaryInfo = New Label()
         lblSalesSummaryTitle = New Label()
         pnlTransactions = New Panel()
-        lblDate3 = New Label()
-        lblPrice3 = New Label()
-        lblQty3 = New Label()
-        lblOUTitem3 = New Label()
-        lblDate2 = New Label()
-        lblPrice2 = New Label()
-        lblQty2 = New Label()
-        lblOUTitem2 = New Label()
-        lblDate1 = New Label()
-        lblPrice1 = New Label()
-        lblQty1 = New Label()
-        lblOUTitem1 = New Label()
-        lblHeaderDate = New Label()
-        lblHeaderPrice = New Label()
-        lblHeaderQty = New Label()
-        lblHeaderItem = New Label()
+        dgvSales = New DataGridView()
+        colSaleItem = New DataGridViewTextBoxColumn()
+        colSaleQty = New DataGridViewTextBoxColumn()
+        colSalePrice = New DataGridViewTextBoxColumn()
+        colSaleDate = New DataGridViewTextBoxColumn()
         lblRecentTitle = New Label()
         pnlItemsOUT = New Panel()
         btnOUTAdd = New Button()
@@ -51,13 +36,14 @@ Partial Class ucItemsOut
         lblOUTPrice = New Label()
         txtQty = New TextBox()
         lblOUTQty = New Label()
-        txtItemName = New TextBox()
+        cboItem = New ComboBox()
         lblItemsOUTTitle = New Label()
         lblOUTdesc = New Label()
         lblOUThandling = New Label()
         pnlMain.SuspendLayout()
         pnlSalesSummary.SuspendLayout()
         pnlTransactions.SuspendLayout()
+        CType(dgvSales, ComponentModel.ISupportInitialize).BeginInit()
         pnlItemsOUT.SuspendLayout()
         SuspendLayout()
         ' 
@@ -88,7 +74,7 @@ Partial Class ucItemsOut
         ' lblSalesSummaryStatus
         ' 
         lblSalesSummaryStatus.AutoSize = True
-        lblSalesSummaryStatus.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblSalesSummaryStatus.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblSalesSummaryStatus.ForeColor = Color.FromArgb(CByte(168), CByte(85), CByte(247))
         lblSalesSummaryStatus.Location = New Point(750, 20)
         lblSalesSummaryStatus.Name = "lblSalesSummaryStatus"
@@ -99,13 +85,13 @@ Partial Class ucItemsOut
         ' lblSalesSummaryInfo
         ' 
         lblSalesSummaryInfo.AutoSize = True
-        lblSalesSummaryInfo.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        lblSalesSummaryInfo.Font = New Font("Segoe UI", 9.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         lblSalesSummaryInfo.ForeColor = Color.FromArgb(CByte(161), CByte(161), CByte(170))
         lblSalesSummaryInfo.Location = New Point(20, 19)
         lblSalesSummaryInfo.Name = "lblSalesSummaryInfo"
         lblSalesSummaryInfo.Size = New Size(199, 15)
         lblSalesSummaryInfo.TabIndex = 9
-        lblSalesSummaryInfo.Text = "5 items sold today"
+        lblSalesSummaryInfo.Text = "0 items sold today"
         ' 
         ' lblSalesSummaryTitle
         ' 
@@ -119,188 +105,74 @@ Partial Class ucItemsOut
         lblSalesSummaryTitle.Text = "TODAY'S SALES"
         ' 
         ' pnlTransactions
+        ' --  scrollable grid bound to dbo.Sales
         ' 
         pnlTransactions.BackColor = Color.FromArgb(CByte(16), CByte(16), CByte(22))
-        pnlTransactions.Controls.Add(lblDate3)
-        pnlTransactions.Controls.Add(lblPrice3)
-        pnlTransactions.Controls.Add(lblQty3)
-        pnlTransactions.Controls.Add(lblOUTitem3)
-        pnlTransactions.Controls.Add(lblDate2)
-        pnlTransactions.Controls.Add(lblPrice2)
-        pnlTransactions.Controls.Add(lblQty2)
-        pnlTransactions.Controls.Add(lblOUTitem2)
-        pnlTransactions.Controls.Add(lblDate1)
-        pnlTransactions.Controls.Add(lblPrice1)
-        pnlTransactions.Controls.Add(lblQty1)
-        pnlTransactions.Controls.Add(lblOUTitem1)
-        pnlTransactions.Controls.Add(lblHeaderDate)
-        pnlTransactions.Controls.Add(lblHeaderPrice)
-        pnlTransactions.Controls.Add(lblHeaderQty)
-        pnlTransactions.Controls.Add(lblHeaderItem)
+        pnlTransactions.Controls.Add(dgvSales)
         pnlTransactions.Location = New Point(35, 315)
         pnlTransactions.Name = "pnlTransactions"
-        pnlTransactions.Size = New Size(855, 180)
+        pnlTransactions.Padding = New Padding(10)
+        pnlTransactions.Size = New Size(855, 200)
         pnlTransactions.TabIndex = 6
         ' 
-        ' lblHeaderItem
+        ' dgvSales
         ' 
-        lblHeaderItem.AutoSize = True
-        lblHeaderItem.ForeColor = Color.FromArgb(CByte(161), CByte(161), CByte(170))
-        lblHeaderItem.Location = New Point(20, 15)
-        lblHeaderItem.Name = "lblHeaderItem"
-        lblHeaderItem.Size = New Size(33, 15)
-        lblHeaderItem.TabIndex = 0
-        lblHeaderItem.Text = "ITEM"
+        dgvSales.AllowUserToAddRows = False
+        dgvSales.AllowUserToDeleteRows = False
+        dgvSales.AutoGenerateColumns = False
+        dgvSales.BackgroundColor = Color.FromArgb(CByte(16), CByte(16), CByte(22))
+        dgvSales.BorderStyle = BorderStyle.None
+        dgvSales.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(CByte(22), CByte(22), CByte(31))
+        dgvSales.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(CByte(161), CByte(161), CByte(170))
+        dgvSales.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        dgvSales.Columns.AddRange(New DataGridViewColumn() {colSaleItem, colSaleQty, colSalePrice, colSaleDate})
+        dgvSales.DefaultCellStyle.BackColor = Color.FromArgb(CByte(16), CByte(16), CByte(22))
+        dgvSales.DefaultCellStyle.ForeColor = Color.White
+        dgvSales.DefaultCellStyle.SelectionBackColor = Color.FromArgb(CByte(139), CByte(92), CByte(246))
+        dgvSales.Dock = DockStyle.Fill
+        dgvSales.EnableHeadersVisualStyles = False
+        dgvSales.GridColor = Color.FromArgb(CByte(40), CByte(40), CByte(50))
+        dgvSales.Location = New Point(10, 10)
+        dgvSales.Name = "dgvSales"
+        dgvSales.ReadOnly = True
+        dgvSales.RowHeadersVisible = False
+        dgvSales.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        dgvSales.Size = New Size(835, 180)
+        dgvSales.TabIndex = 0
         ' 
-        ' lblHeaderQty
+        ' colSaleItem
         ' 
-        lblHeaderQty.AutoSize = True
-        lblHeaderQty.ForeColor = Color.FromArgb(CByte(161), CByte(161), CByte(170))
-        lblHeaderQty.Location = New Point(248, 15)
-        lblHeaderQty.Name = "lblHeaderQty"
-        lblHeaderQty.Size = New Size(28, 15)
-        lblHeaderQty.TabIndex = 1
-        lblHeaderQty.Text = "QTY"
+        colSaleItem.DataPropertyName = "ItemName"
+        colSaleItem.HeaderText = "ITEM"
+        colSaleItem.Name = "colSaleItem"
+        colSaleItem.ReadOnly = True
+        colSaleItem.Width = 260
         ' 
-        ' lblHeaderPrice
+        ' colSaleQty
         ' 
-        lblHeaderPrice.AutoSize = True
-        lblHeaderPrice.ForeColor = Color.FromArgb(CByte(161), CByte(161), CByte(170))
-        lblHeaderPrice.Location = New Point(434, 15)
-        lblHeaderPrice.Name = "lblHeaderPrice"
-        lblHeaderPrice.Size = New Size(37, 15)
-        lblHeaderPrice.TabIndex = 2
-        lblHeaderPrice.Text = "PRICE"
+        colSaleQty.DataPropertyName = "Quantity"
+        colSaleQty.HeaderText = "QTY"
+        colSaleQty.Name = "colSaleQty"
+        colSaleQty.ReadOnly = True
+        colSaleQty.Width = 70
         ' 
-        ' lblHeaderDate
+        ' colSalePrice
         ' 
-        lblHeaderDate.AutoSize = True
-        lblHeaderDate.ForeColor = Color.FromArgb(CByte(161), CByte(161), CByte(170))
-        lblHeaderDate.Location = New Point(549, 15)
-        lblHeaderDate.Name = "lblHeaderDate"
-        lblHeaderDate.Size = New Size(34, 15)
-        lblHeaderDate.TabIndex = 3
-        lblHeaderDate.Text = "DATE"
+        colSalePrice.DataPropertyName = "Price"
+        colSalePrice.DefaultCellStyle.Format = "₱#,##0.00"
+        colSalePrice.HeaderText = "PRICE"
+        colSalePrice.Name = "colSalePrice"
+        colSalePrice.ReadOnly = True
+        colSalePrice.Width = 110
         ' 
-        ' lblOUTitem1
+        ' colSaleDate
         ' 
-        lblOUTitem1.AutoSize = True
-        lblOUTitem1.ForeColor = Color.White
-        lblOUTitem1.Location = New Point(20, 55)
-        lblOUTitem1.Name = "lblOUTitem1"
-        lblOUTitem1.Size = New Size(42, 15)
-        lblOUTitem1.TabIndex = 4
-        lblOUTitem1.Text = "T-Shirt"
-        ' 
-        ' lblQty1
-        ' 
-        lblQty1.AutoSize = True
-        lblQty1.ForeColor = Color.White
-        lblQty1.Location = New Point(248, 55)
-        lblQty1.Name = "lblQty1"
-        lblQty1.Size = New Size(13, 15)
-        lblQty1.TabIndex = 5
-        lblQty1.Text = "2"
-        ' 
-        ' lblPrice1
-        ' 
-        lblPrice1.AutoSize = True
-        lblPrice1.ForeColor = Color.FromArgb(CByte(168), CByte(85), CByte(247))
-        lblPrice1.Location = New Point(434, 55)
-        lblPrice1.Name = "lblPrice1"
-        lblPrice1.Size = New Size(40, 15)
-        lblPrice1.TabIndex = 6
-        lblPrice1.Text = "₱300"
-        ' 
-        ' lblDate1
-        ' 
-        lblDate1.AutoSize = True
-        lblDate1.ForeColor = Color.FromArgb(CByte(161), CByte(161), CByte(170))
-        lblDate1.Location = New Point(549, 55)
-        lblDate1.Name = "lblDate1"
-        lblDate1.Size = New Size(65, 15)
-        lblDate1.TabIndex = 7
-        lblDate1.Text = "Sep 5, 2026"
-        ' 
-        ' lblOUTitem2
-        ' 
-        lblOUTitem2.AutoSize = True
-        lblOUTitem2.ForeColor = Color.White
-        lblOUTitem2.Location = New Point(20, 90)
-        lblOUTitem2.Name = "lblOUTitem2"
-        lblOUTitem2.Size = New Size(70, 15)
-        lblOUTitem2.TabIndex = 8
-        lblOUTitem2.Text = "Cargo Pants"
-        ' 
-        ' lblQty2
-        ' 
-        lblQty2.AutoSize = True
-        lblQty2.ForeColor = Color.White
-        lblQty2.Location = New Point(248, 90)
-        lblQty2.Name = "lblQty2"
-        lblQty2.Size = New Size(13, 15)
-        lblQty2.TabIndex = 9
-        lblQty2.Text = "1"
-        ' 
-        ' lblPrice2
-        ' 
-        lblPrice2.AutoSize = True
-        lblPrice2.ForeColor = Color.FromArgb(CByte(168), CByte(85), CByte(247))
-        lblPrice2.Location = New Point(434, 90)
-        lblPrice2.Name = "lblPrice2"
-        lblPrice2.Size = New Size(40, 15)
-        lblPrice2.TabIndex = 10
-        lblPrice2.Text = "₱180"
-        ' 
-        ' lblDate2
-        ' 
-        lblDate2.AutoSize = True
-        lblDate2.ForeColor = Color.FromArgb(CByte(161), CByte(161), CByte(170))
-        lblDate2.Location = New Point(549, 90)
-        lblDate2.Name = "lblDate2"
-        lblDate2.Size = New Size(65, 15)
-        lblDate2.TabIndex = 11
-        lblDate2.Text = "Sep 5, 2026"
-        ' 
-        ' lblOUTitem3
-        ' 
-        lblOUTitem3.AutoSize = True
-        lblOUTitem3.ForeColor = Color.White
-        lblOUTitem3.Location = New Point(20, 125)
-        lblOUTitem3.Name = "lblOUTitem3"
-        lblOUTitem3.Size = New Size(50, 15)
-        lblOUTitem3.TabIndex = 12
-        lblOUTitem3.Text = "Hoodie"
-        ' 
-        ' lblQty3
-        ' 
-        lblQty3.AutoSize = True
-        lblQty3.ForeColor = Color.White
-        lblQty3.Location = New Point(248, 125)
-        lblQty3.Name = "lblQty3"
-        lblQty3.Size = New Size(13, 15)
-        lblQty3.TabIndex = 13
-        lblQty3.Text = "1"
-        ' 
-        ' lblPrice3
-        ' 
-        lblPrice3.AutoSize = True
-        lblPrice3.ForeColor = Color.FromArgb(CByte(168), CByte(85), CByte(247))
-        lblPrice3.Location = New Point(434, 125)
-        lblPrice3.Name = "lblPrice3"
-        lblPrice3.Size = New Size(40, 15)
-        lblPrice3.TabIndex = 14
-        lblPrice3.Text = "₱220"
-        ' 
-        ' lblDate3
-        ' 
-        lblDate3.AutoSize = True
-        lblDate3.ForeColor = Color.FromArgb(CByte(161), CByte(161), CByte(170))
-        lblDate3.Location = New Point(549, 125)
-        lblDate3.Name = "lblDate3"
-        lblDate3.Size = New Size(65, 15)
-        lblDate3.TabIndex = 15
-        lblDate3.Text = "Sep 5, 2026"
+        colSaleDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        colSaleDate.DataPropertyName = "DateSold"
+        colSaleDate.DefaultCellStyle.Format = "MMM d, yyyy"
+        colSaleDate.HeaderText = "DATE SOLD"
+        colSaleDate.Name = "colSaleDate"
+        colSaleDate.ReadOnly = True
         ' 
         ' lblRecentTitle
         ' 
@@ -322,7 +194,7 @@ Partial Class ucItemsOut
         pnlItemsOUT.Controls.Add(lblOUTPrice)
         pnlItemsOUT.Controls.Add(txtQty)
         pnlItemsOUT.Controls.Add(lblOUTQty)
-        pnlItemsOUT.Controls.Add(txtItemName)
+        pnlItemsOUT.Controls.Add(cboItem)
         pnlItemsOUT.Controls.Add(lblItemsOUTTitle)
         pnlItemsOUT.Location = New Point(55, 120)
         pnlItemsOUT.Name = "pnlItemsOUT"
@@ -336,18 +208,21 @@ Partial Class ucItemsOut
         lblItemsOUTTitle.Name = "lblItemsOUTTitle"
         lblItemsOUTTitle.Size = New Size(200, 25)
         lblItemsOUTTitle.TabIndex = 0
-        lblItemsOUTTitle.Text = "ITEM NAME"
+        lblItemsOUTTitle.Text = "ITEM"
         ' 
-        ' txtItemName
+        ' cboItem  -- DropDownList so a sale
+        '            always resolves to a real ItemID, never a typed guess.
         ' 
-        txtItemName.BackColor = Color.FromArgb(CByte(14), CByte(12), CByte(21))
-        txtItemName.BorderStyle = BorderStyle.FixedSingle
-        txtItemName.Font = New Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        txtItemName.ForeColor = Color.White
-        txtItemName.Location = New Point(36, 62)
-        txtItemName.Name = "txtItemName"
-        txtItemName.Size = New Size(115, 27)
-        txtItemName.TabIndex = 12
+        cboItem.BackColor = Color.FromArgb(CByte(14), CByte(12), CByte(21))
+        cboItem.DropDownStyle = ComboBoxStyle.DropDownList
+        cboItem.FlatStyle = FlatStyle.Flat
+        cboItem.Font = New Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        cboItem.ForeColor = Color.White
+        cboItem.FormattingEnabled = True
+        cboItem.Location = New Point(36, 62)
+        cboItem.Name = "cboItem"
+        cboItem.Size = New Size(160, 28)
+        cboItem.TabIndex = 12
         ' 
         ' lblOUTQty
         ' 
@@ -356,7 +231,7 @@ Partial Class ucItemsOut
         lblOUTQty.Name = "lblOUTQty"
         lblOUTQty.Size = New Size(200, 25)
         lblOUTQty.TabIndex = 3
-        lblOUTQty.Text = "QUANTITY"
+        lblOUTQty.Text = "QTY SOLD"
         ' 
         ' txtQty
         ' 
@@ -411,7 +286,7 @@ Partial Class ucItemsOut
         ' 
         lblOUTdesc.AutoSize = True
         lblOUTdesc.BackColor = Color.Transparent
-        lblOUTdesc.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        lblOUTdesc.Font = New Font("Segoe UI", 9.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         lblOUTdesc.ForeColor = Color.FromArgb(CByte(161), CByte(161), CByte(170))
         lblOUTdesc.Location = New Point(37, 70)
         lblOUTdesc.Name = "lblOUTdesc"
@@ -433,7 +308,7 @@ Partial Class ucItemsOut
         ' 
         ' ucItemsOut
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(8), CByte(8), CByte(12))
         Controls.Add(pnlMain)
@@ -444,7 +319,7 @@ Partial Class ucItemsOut
         pnlSalesSummary.ResumeLayout(False)
         pnlSalesSummary.PerformLayout()
         pnlTransactions.ResumeLayout(False)
-        pnlTransactions.PerformLayout()
+        CType(dgvSales, ComponentModel.ISupportInitialize).EndInit()
         pnlItemsOUT.ResumeLayout(False)
         pnlItemsOUT.PerformLayout()
         ResumeLayout(False)
@@ -456,22 +331,11 @@ Partial Class ucItemsOut
     Friend WithEvents lblSalesSummaryInfo As Label
     Friend WithEvents lblSalesSummaryTitle As Label
     Friend WithEvents pnlTransactions As Panel
-    Friend WithEvents lblDate3 As Label
-    Friend WithEvents lblPrice3 As Label
-    Friend WithEvents lblQty3 As Label
-    Friend WithEvents lblOUTitem3 As Label
-    Friend WithEvents lblDate2 As Label
-    Friend WithEvents lblPrice2 As Label
-    Friend WithEvents lblQty2 As Label
-    Friend WithEvents lblOUTitem2 As Label
-    Friend WithEvents lblDate1 As Label
-    Friend WithEvents lblPrice1 As Label
-    Friend WithEvents lblQty1 As Label
-    Friend WithEvents lblOUTitem1 As Label
-    Friend WithEvents lblHeaderDate As Label
-    Friend WithEvents lblHeaderPrice As Label
-    Friend WithEvents lblHeaderQty As Label
-    Friend WithEvents lblHeaderItem As Label
+    Friend WithEvents dgvSales As DataGridView
+    Friend WithEvents colSaleItem As DataGridViewTextBoxColumn
+    Friend WithEvents colSaleQty As DataGridViewTextBoxColumn
+    Friend WithEvents colSalePrice As DataGridViewTextBoxColumn
+    Friend WithEvents colSaleDate As DataGridViewTextBoxColumn
     Friend WithEvents lblRecentTitle As Label
     Friend WithEvents pnlItemsOUT As Panel
     Friend WithEvents lblItemsOUTTitle As Label
@@ -482,6 +346,6 @@ Partial Class ucItemsOut
     Friend WithEvents btnOUTAdd As Button
     Friend WithEvents txtPrice As TextBox
     Friend WithEvents txtQty As TextBox
-    Friend WithEvents txtItemName As TextBox
+    Friend WithEvents cboItem As ComboBox
 
 End Class

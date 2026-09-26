@@ -42,7 +42,7 @@
 
     Private Sub btnItemsIN_Click(sender As Object, e As EventArgs) Handles btnItemsIN.Click
         SetActiveButton(btnItemsIN)
-        LoadSubPage(New ucItemsIn())
+        LoadSubPage(New ucItemsInAndOut())
     End Sub
 
 

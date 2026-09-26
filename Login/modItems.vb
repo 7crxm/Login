@@ -3,19 +3,19 @@ Imports System.Data.SqlClient
 
 Module modItems
 
-    ''' <summary>All items, most recent first. Backs the ucItemsIn grid.</summary>
+    '''All items, most recent first. Backs the ucItemsIn grid.
     Public Function GetAllItems() As DataTable
         Return RunQuery("SELECT ItemID, ItemName, Category, Quantity, Status, DateAdded, DatePlaced " &
                          "FROM dbo.Items ORDER BY DateAdded DESC")
     End Function
 
-    ''' <summary>Items that have arrived but haven't been placed on the floor yet.</summary>
+    ''' Items that have arrived but haven't been placed on the floor yet.
     Public Function GetItemsAwaitingPlacement() As DataTable
         Return RunQuery("SELECT ItemID, ItemName, Category, Quantity, DateAdded " &
                          "FROM dbo.Items WHERE Status = 'In Stock' ORDER BY DateAdded ASC")
     End Function
 
-    ''' <summary>Logs a new arrival with Status = 'In Stock'.</summary>
+    ''' Logs a new arrival with Status = 'In Stock'.
     Public Sub AddItem(itemName As String, category As String, quantity As Integer)
         Using conn As New SqlConnection(modDatabase.ConnString)
             Dim sql As String = "INSERT INTO dbo.Items (ItemName, Category, Quantity) " &
@@ -30,7 +30,7 @@ Module modItems
         End Using
     End Sub
 
-    ''' <summary>Moves an item from 'In Stock' to 'Placed' and stamps the placement date.</summary>
+    ''' Moves an item from 'In Stock' to 'Placed' and stamps the placement date.
     Public Sub MarkAsPlaced(itemId As Integer)
         Using conn As New SqlConnection(modDatabase.ConnString)
             Dim sql As String = "UPDATE dbo.Items SET Status = 'Placed', DatePlaced = SYSDATETIME() WHERE ItemID = @ItemID"
@@ -42,7 +42,7 @@ Module modItems
         End Using
     End Sub
 
-    ''' <summary>Shared helper so every query here opens/closes the connection the same way.</summary>
+    ''' Shared helper so every query here opens/closes the connection the same way.
     Private Function RunQuery(sql As String) As DataTable
         Dim dt As New DataTable()
         Using conn As New SqlConnection(modDatabase.ConnString)

@@ -1,9 +1,9 @@
-<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class ucItemsIn
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+Partial Class ucItemsInAndOut
     Inherits System.Windows.Forms.UserControl
 
     'UserControl overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -17,10 +17,10 @@ Partial Class ucItemsIn
     'Required by the Windows Form Designer
     Private components As System.ComponentModel.IContainer
 
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
         pnlMain = New Panel()
         pnlPlacement = New Panel()
         lblPlacementStatus = New Label()
@@ -39,6 +39,7 @@ Partial Class ucItemsIn
         lblItemsINTitle = New Label()
         lblINdesc = New Label()
         lblINhandling = New Label()
+        btnOUTsell = New Button()
         pnlMain.SuspendLayout()
         pnlPlacement.SuspendLayout()
         pnlTransactions.SuspendLayout()
@@ -73,7 +74,7 @@ Partial Class ucItemsIn
         ' lblPlacementStatus
         ' 
         lblPlacementStatus.AutoSize = True
-        lblPlacementStatus.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblPlacementStatus.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblPlacementStatus.ForeColor = Color.FromArgb(CByte(168), CByte(85), CByte(247))
         lblPlacementStatus.Location = New Point(750, 20)
         lblPlacementStatus.Name = "lblPlacementStatus"
@@ -84,7 +85,7 @@ Partial Class ucItemsIn
         ' lblPlacementInfo
         ' 
         lblPlacementInfo.AutoSize = True
-        lblPlacementInfo.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        lblPlacementInfo.Font = New Font("Segoe UI", 9.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         lblPlacementInfo.ForeColor = Color.FromArgb(CByte(161), CByte(161), CByte(170))
         lblPlacementInfo.Location = New Point(20, 19)
         lblPlacementInfo.Name = "lblPlacementInfo"
@@ -119,23 +120,23 @@ Partial Class ucItemsIn
         dgvItems.AllowUserToDeleteRows = False
         dgvItems.BackgroundColor = Color.FromArgb(CByte(16), CByte(16), CByte(22))
         dgvItems.BorderStyle = BorderStyle.None
-        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = Color.FromArgb(CByte(22), CByte(22), CByte(31))
-        DataGridViewCellStyle1.Font = New Font("Segoe UI", 9F)
-        DataGridViewCellStyle1.ForeColor = Color.FromArgb(CByte(161), CByte(161), CByte(170))
-        DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
-        dgvItems.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = Color.FromArgb(CByte(22), CByte(22), CByte(31))
+        DataGridViewCellStyle3.Font = New Font("Segoe UI", 9.0F)
+        DataGridViewCellStyle3.ForeColor = Color.FromArgb(CByte(161), CByte(161), CByte(170))
+        DataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = DataGridViewTriState.True
+        dgvItems.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
         dgvItems.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = Color.FromArgb(CByte(16), CByte(16), CByte(22))
-        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F)
-        DataGridViewCellStyle2.ForeColor = Color.White
-        DataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(CByte(139), CByte(92), CByte(246))
-        DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
-        dgvItems.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = Color.FromArgb(CByte(16), CByte(16), CByte(22))
+        DataGridViewCellStyle4.Font = New Font("Segoe UI", 9.0F)
+        DataGridViewCellStyle4.ForeColor = Color.White
+        DataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(CByte(139), CByte(92), CByte(246))
+        DataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = DataGridViewTriState.False
+        dgvItems.DefaultCellStyle = DataGridViewCellStyle4
         dgvItems.Dock = DockStyle.Fill
         dgvItems.EnableHeadersVisualStyles = False
         dgvItems.GridColor = Color.FromArgb(CByte(40), CByte(40), CByte(50))
@@ -162,6 +163,7 @@ Partial Class ucItemsIn
         ' pnlItemsIN
         ' 
         pnlItemsIN.BackColor = Color.FromArgb(CByte(22), CByte(22), CByte(31))
+        pnlItemsIN.Controls.Add(btnOUTsell)
         pnlItemsIN.Controls.Add(TextBox2)
         pnlItemsIN.Controls.Add(TextBox1)
         pnlItemsIN.Controls.Add(txtUsername)
@@ -218,9 +220,9 @@ Partial Class ucItemsIn
         btnINAdd.FlatStyle = FlatStyle.Flat
         btnINAdd.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnINAdd.ForeColor = Color.White
-        btnINAdd.Location = New Point(608, 58)
+        btnINAdd.Location = New Point(530, 57)
         btnINAdd.Name = "btnINAdd"
-        btnINAdd.Size = New Size(135, 32)
+        btnINAdd.Size = New Size(107, 32)
         btnINAdd.TabIndex = 11
         btnINAdd.Text = "+ ADD ITEM"
         btnINAdd.UseVisualStyleBackColor = False
@@ -256,7 +258,7 @@ Partial Class ucItemsIn
         ' 
         lblINdesc.AutoSize = True
         lblINdesc.BackColor = Color.Transparent
-        lblINdesc.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        lblINdesc.Font = New Font("Segoe UI", 9.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         lblINdesc.ForeColor = Color.FromArgb(CByte(161), CByte(161), CByte(170))
         lblINdesc.Location = New Point(37, 70)
         lblINdesc.Name = "lblINdesc"
@@ -272,13 +274,31 @@ Partial Class ucItemsIn
         lblINhandling.ForeColor = Color.White
         lblINhandling.Location = New Point(35, 30)
         lblINhandling.Name = "lblINhandling"
-        lblINhandling.Size = New Size(267, 40)
+        lblINhandling.Size = New Size(356, 40)
         lblINhandling.TabIndex = 0
-        lblINhandling.Text = "Items IN Handling"
+        lblINhandling.Text = "Items IN / OUT Handling"
+        ' 
+        ' btnOUTsell
+        ' 
+        btnOUTsell.AutoSize = True
+        btnOUTsell.BackColor = Color.FromArgb(CByte(139), CByte(92), CByte(246))
+        btnOUTsell.Cursor = Cursors.Hand
+        btnOUTsell.FlatAppearance.BorderSize = 0
+        btnOUTsell.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(124), CByte(58), CByte(237))
+        btnOUTsell.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(168), CByte(85), CByte(247))
+        btnOUTsell.FlatStyle = FlatStyle.Flat
+        btnOUTsell.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnOUTsell.ForeColor = Color.White
+        btnOUTsell.Location = New Point(654, 57)
+        btnOUTsell.Name = "btnOUTsell"
+        btnOUTsell.Size = New Size(107, 32)
+        btnOUTsell.TabIndex = 15
+        btnOUTsell.Text = "- SELL ITEM"
+        btnOUTsell.UseVisualStyleBackColor = False
         ' 
         ' ucItemsIn
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(8), CByte(8), CByte(12))
         Controls.Add(pnlMain)
@@ -318,5 +338,6 @@ Partial Class ucItemsIn
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents txtUsername As TextBox
+    Friend WithEvents btnOUTsell As Button
 
 End Class

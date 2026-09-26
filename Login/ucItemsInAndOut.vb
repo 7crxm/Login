@@ -1,4 +1,4 @@
-Public Class ucItemsIn
+Public Class ucItemsInAndOut
 
     Private Sub ucItemsIn_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         RefreshGrid()
@@ -44,6 +44,10 @@ Public Class ucItemsIn
     End Sub
 
     Private Sub dgvItems_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvItems.CellContentClick
+
+    End Sub
+
+    Private Sub lblINhandling_Click(sender As Object, e As EventArgs) Handles lblINhandling.Click
 
     End Sub
 End Class
