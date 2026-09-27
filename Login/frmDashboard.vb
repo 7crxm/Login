@@ -5,7 +5,7 @@
 
         ' Reset all buttons to normal color
         btnDashboard.BackColor = Color.FromArgb(16, 16, 22)
-        btnItemsIN.BackColor = Color.FromArgb(16, 16, 22)
+        btnItemsINandOUT.BackColor = Color.FromArgb(16, 16, 22)
         btnItemsOUT.BackColor = Color.FromArgb(16, 16, 22)
         btnSupplier.BackColor = Color.FromArgb(16, 16, 22)
         btnBuyingReturns.BackColor = Color.FromArgb(16, 16, 22)
@@ -40,8 +40,8 @@
     ' Navigates to the Items In page
 
 
-    Private Sub btnItemsIN_Click(sender As Object, e As EventArgs) Handles btnItemsIN.Click
-        SetActiveButton(btnItemsIN)
+    Private Sub btnItemsIN_Click(sender As Object, e As EventArgs) Handles btnItemsINandOUT.Click
+        SetActiveButton(btnItemsINandOUT)
         LoadSubPage(New ucItemsInAndOut())
     End Sub
 

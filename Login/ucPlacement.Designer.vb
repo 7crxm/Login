@@ -18,176 +18,201 @@ Partial Class ucPlacement
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         pnlMain = New Panel()
-        pnlPlacementSummary = New Panel()
-        lblPlacementSummaryStatus = New Label()
-        lblPlacementSummaryInfo = New Label()
-        lblPlacementSummaryTitle = New Label()
         pnlTransactions = New Panel()
-        dgvPlacement = New DataGridView()
+        dgvPlaced = New DataGridView()
+        lblPlacedHeader = New Label()
+        dgvAwaiting = New DataGridView()
         colItemID = New DataGridViewTextBoxColumn()
         colItemName = New DataGridViewTextBoxColumn()
         colCategory = New DataGridViewTextBoxColumn()
         colQuantity = New DataGridViewTextBoxColumn()
         colDateAdded = New DataGridViewTextBoxColumn()
+        lblAwaitingHeader = New Label()
         lblRecentTitle = New Label()
         btnMarkPlaced = New Button()
+        txtLocation = New TextBox()
+        lblLocation = New Label()
         lblPLdesc = New Label()
         lblPLhandling = New Label()
         pnlMain.SuspendLayout()
-        pnlPlacementSummary.SuspendLayout()
         pnlTransactions.SuspendLayout()
-        CType(dgvPlacement, ComponentModel.ISupportInitialize).BeginInit()
+        CType(dgvPlaced, ComponentModel.ISupportInitialize).BeginInit()
+        CType(dgvAwaiting, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
-        ' 
+        '
         ' pnlMain
-        ' 
-        pnlMain.Controls.Add(pnlPlacementSummary)
-        pnlMain.Controls.Add(lblPlacementSummaryTitle)
+        '
         pnlMain.Controls.Add(pnlTransactions)
         pnlMain.Controls.Add(lblRecentTitle)
         pnlMain.Controls.Add(btnMarkPlaced)
+        pnlMain.Controls.Add(txtLocation)
+        pnlMain.Controls.Add(lblLocation)
         pnlMain.Controls.Add(lblPLdesc)
         pnlMain.Controls.Add(lblPLhandling)
         pnlMain.Location = New Point(3, 0)
         pnlMain.Name = "pnlMain"
         pnlMain.Size = New Size(960, 630)
         pnlMain.TabIndex = 3
-        ' 
-        ' pnlPlacementSummary
-        ' 
-        pnlPlacementSummary.BackColor = Color.FromArgb(CByte(22), CByte(22), CByte(31))
-        pnlPlacementSummary.Controls.Add(lblPlacementSummaryStatus)
-        pnlPlacementSummary.Controls.Add(lblPlacementSummaryInfo)
-        pnlPlacementSummary.Location = New Point(35, 524)
-        pnlPlacementSummary.Name = "pnlPlacementSummary"
-        pnlPlacementSummary.Size = New Size(855, 55)
-        pnlPlacementSummary.TabIndex = 8
-        ' 
-        ' lblPlacementSummaryStatus
-        ' 
-        lblPlacementSummaryStatus.AutoSize = True
-        lblPlacementSummaryStatus.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        lblPlacementSummaryStatus.ForeColor = Color.FromArgb(CByte(168), CByte(85), CByte(247))
-        lblPlacementSummaryStatus.Location = New Point(750, 20)
-        lblPlacementSummaryStatus.Name = "lblPlacementSummaryStatus"
-        lblPlacementSummaryStatus.Size = New Size(45, 15)
-        lblPlacementSummaryStatus.TabIndex = 10
-        lblPlacementSummaryStatus.Text = "READY"
-        ' 
-        ' lblPlacementSummaryInfo
-        ' 
-        lblPlacementSummaryInfo.AutoSize = True
-        lblPlacementSummaryInfo.Font = New Font("Segoe UI", 9.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        lblPlacementSummaryInfo.ForeColor = Color.FromArgb(CByte(161), CByte(161), CByte(170))
-        lblPlacementSummaryInfo.Location = New Point(20, 19)
-        lblPlacementSummaryInfo.Name = "lblPlacementSummaryInfo"
-        lblPlacementSummaryInfo.Size = New Size(260, 15)
-        lblPlacementSummaryInfo.TabIndex = 9
-        lblPlacementSummaryInfo.Text = "0 items scheduled for display today"
-        ' 
-        ' lblPlacementSummaryTitle
-        ' 
-        lblPlacementSummaryTitle.AutoSize = True
-        lblPlacementSummaryTitle.Font = New Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        lblPlacementSummaryTitle.ForeColor = Color.White
-        lblPlacementSummaryTitle.Location = New Point(35, 498)
-        lblPlacementSummaryTitle.Name = "lblPlacementSummaryTitle"
-        lblPlacementSummaryTitle.Size = New Size(128, 20)
-        lblPlacementSummaryTitle.TabIndex = 7
-        lblPlacementSummaryTitle.Text = "ITEM PLACEMENT"
-        ' 
+        '
         ' pnlTransactions
-        ' -- was 3 fixed label rows, now a scrollable grid bound to real data
-        ' 
+        '
         pnlTransactions.BackColor = Color.FromArgb(CByte(16), CByte(16), CByte(22))
-        pnlTransactions.Controls.Add(dgvPlacement)
+        pnlTransactions.Controls.Add(dgvPlaced)
+        pnlTransactions.Controls.Add(lblPlacedHeader)
+        pnlTransactions.Controls.Add(dgvAwaiting)
+        pnlTransactions.Controls.Add(lblAwaitingHeader)
         pnlTransactions.Location = New Point(35, 140)
         pnlTransactions.Name = "pnlTransactions"
         pnlTransactions.Padding = New Padding(10)
         pnlTransactions.Size = New Size(855, 374)
         pnlTransactions.TabIndex = 6
-        ' 
-        ' dgvPlacement
-        ' 
-        dgvPlacement.AllowUserToAddRows = False
-        dgvPlacement.AllowUserToDeleteRows = False
-        dgvPlacement.AutoGenerateColumns = False
-        dgvPlacement.BackgroundColor = Color.FromArgb(CByte(16), CByte(16), CByte(22))
-        dgvPlacement.BorderStyle = BorderStyle.None
-        dgvPlacement.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(CByte(22), CByte(22), CByte(31))
-        dgvPlacement.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(CByte(161), CByte(161), CByte(170))
-        dgvPlacement.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        dgvPlacement.Columns.AddRange(New DataGridViewColumn() {colItemID, colItemName, colCategory, colQuantity, colDateAdded})
-        dgvPlacement.DefaultCellStyle.BackColor = Color.FromArgb(CByte(16), CByte(16), CByte(22))
-        dgvPlacement.DefaultCellStyle.ForeColor = Color.White
-        dgvPlacement.DefaultCellStyle.SelectionBackColor = Color.FromArgb(CByte(139), CByte(92), CByte(246))
-        dgvPlacement.Dock = DockStyle.Fill
-        dgvPlacement.EnableHeadersVisualStyles = False
-        dgvPlacement.GridColor = Color.FromArgb(CByte(40), CByte(40), CByte(50))
-        dgvPlacement.Location = New Point(10, 10)
-        dgvPlacement.MultiSelect = False
-        dgvPlacement.Name = "dgvPlacement"
-        dgvPlacement.ReadOnly = True
-        dgvPlacement.RowHeadersVisible = False
-        dgvPlacement.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        dgvPlacement.Size = New Size(835, 354)
-        dgvPlacement.TabIndex = 0
-        ' 
-        ' colItemID  
-        ' 
+        '
+        ' lblAwaitingHeader
+        '
+        lblAwaitingHeader.AutoSize = True
+        lblAwaitingHeader.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblAwaitingHeader.ForeColor = Color.White
+        lblAwaitingHeader.Location = New Point(10, 8)
+        lblAwaitingHeader.Name = "lblAwaitingHeader"
+        lblAwaitingHeader.Size = New Size(140, 17)
+        lblAwaitingHeader.TabIndex = 0
+        lblAwaitingHeader.Text = "AWAITING PLACEMENT"
+        '
+        ' lblPlacedHeader
+        '
+        lblPlacedHeader.AutoSize = True
+        lblPlacedHeader.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblPlacedHeader.ForeColor = Color.White
+        lblPlacedHeader.Location = New Point(430, 8)
+        lblPlacedHeader.Name = "lblPlacedHeader"
+        lblPlacedHeader.Size = New Size(130, 17)
+        lblPlacedHeader.TabIndex = 1
+        lblPlacedHeader.Text = "PLACED (LOCATION)"
+        '
+        ' dgvAwaiting (was dgvPlacement — renamed now that there are two grids)
+        '
+        dgvAwaiting.AllowUserToAddRows = False
+        dgvAwaiting.AllowUserToDeleteRows = False
+        dgvAwaiting.AutoGenerateColumns = False
+        dgvAwaiting.BackgroundColor = Color.FromArgb(CByte(16), CByte(16), CByte(22))
+        dgvAwaiting.BorderStyle = BorderStyle.None
+        dgvAwaiting.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(CByte(22), CByte(22), CByte(31))
+        dgvAwaiting.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(CByte(161), CByte(161), CByte(170))
+        dgvAwaiting.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        dgvAwaiting.Columns.AddRange(New DataGridViewColumn() {colItemID, colItemName, colCategory, colQuantity, colDateAdded})
+        dgvAwaiting.DefaultCellStyle.BackColor = Color.FromArgb(CByte(16), CByte(16), CByte(22))
+        dgvAwaiting.DefaultCellStyle.ForeColor = Color.White
+        dgvAwaiting.DefaultCellStyle.SelectionBackColor = Color.FromArgb(CByte(139), CByte(92), CByte(246))
+        dgvAwaiting.EnableHeadersVisualStyles = False
+        dgvAwaiting.GridColor = Color.FromArgb(CByte(40), CByte(40), CByte(50))
+        dgvAwaiting.Location = New Point(10, 35)
+        dgvAwaiting.MultiSelect = False
+        dgvAwaiting.Name = "dgvAwaiting"
+        dgvAwaiting.ReadOnly = True
+        dgvAwaiting.RowHeadersVisible = False
+        dgvAwaiting.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        dgvAwaiting.Size = New Size(405, 329)
+        dgvAwaiting.TabIndex = 2
+        '
+        ' colItemID
+        '
         colItemID.DataPropertyName = "ItemID"
         colItemID.HeaderText = "ID"
         colItemID.Name = "colItemID"
         colItemID.ReadOnly = True
         colItemID.Visible = False
-        ' 
+        '
         ' colItemName
-        ' 
+        '
         colItemName.DataPropertyName = "ItemName"
         colItemName.HeaderText = "ITEM"
         colItemName.Name = "colItemName"
         colItemName.ReadOnly = True
-        colItemName.Width = 260
-        ' 
+        colItemName.Width = 130
+        '
         ' colCategory
-        ' 
+        '
         colCategory.DataPropertyName = "Category"
         colCategory.HeaderText = "CATEGORY"
         colCategory.Name = "colCategory"
         colCategory.ReadOnly = True
-        colCategory.Width = 180
-        ' 
+        colCategory.Width = 100
+        '
         ' colQuantity
-        ' 
+        '
         colQuantity.DataPropertyName = "Quantity"
         colQuantity.HeaderText = "QTY"
         colQuantity.Name = "colQuantity"
         colQuantity.ReadOnly = True
-        colQuantity.Width = 80
-        ' 
+        colQuantity.Width = 60
+        '
         ' colDateAdded
-        ' 
+        '
         colDateAdded.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
         colDateAdded.DataPropertyName = "DateAdded"
         colDateAdded.DefaultCellStyle.Format = "MMM d, yyyy"
         colDateAdded.HeaderText = "DATE ADDED"
         colDateAdded.Name = "colDateAdded"
         colDateAdded.ReadOnly = True
-        ' 
+        '
+        ' dgvPlaced (Status = 'Placed' — shows where each item currently sits; drops a row the moment it's sold)
+        '
+        dgvPlaced.AllowUserToAddRows = False
+        dgvPlaced.AllowUserToDeleteRows = False
+        dgvPlaced.BackgroundColor = Color.FromArgb(CByte(16), CByte(16), CByte(22))
+        dgvPlaced.BorderStyle = BorderStyle.None
+        dgvPlaced.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(CByte(22), CByte(22), CByte(31))
+        dgvPlaced.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(CByte(161), CByte(161), CByte(170))
+        dgvPlaced.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        dgvPlaced.DefaultCellStyle.BackColor = Color.FromArgb(CByte(16), CByte(16), CByte(22))
+        dgvPlaced.DefaultCellStyle.ForeColor = Color.White
+        dgvPlaced.DefaultCellStyle.SelectionBackColor = Color.FromArgb(CByte(139), CByte(92), CByte(246))
+        dgvPlaced.EnableHeadersVisualStyles = False
+        dgvPlaced.GridColor = Color.FromArgb(CByte(40), CByte(40), CByte(50))
+        dgvPlaced.Location = New Point(430, 35)
+        dgvPlaced.MultiSelect = False
+        dgvPlaced.Name = "dgvPlaced"
+        dgvPlaced.ReadOnly = True
+        dgvPlaced.RowHeadersVisible = False
+        dgvPlaced.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        dgvPlaced.Size = New Size(405, 329)
+        dgvPlaced.TabIndex = 3
+        '
         ' lblRecentTitle
-        ' 
+        '
         lblRecentTitle.AutoSize = True
         lblRecentTitle.BackColor = Color.Transparent
         lblRecentTitle.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblRecentTitle.ForeColor = Color.White
         lblRecentTitle.Location = New Point(35, 100)
         lblRecentTitle.Name = "lblRecentTitle"
-        lblRecentTitle.Size = New Size(160, 20)
+        lblRecentTitle.Size = New Size(93, 20)
         lblRecentTitle.TabIndex = 5
-        lblRecentTitle.Text = "Waiting for Placement"
-        ' 
+        lblRecentTitle.Text = "Placement"
+        '
+        ' lblLocation
+        '
+        lblLocation.AutoSize = True
+        lblLocation.ForeColor = Color.FromArgb(CByte(161), CByte(161), CByte(170))
+        lblLocation.Location = New Point(500, 40)
+        lblLocation.Name = "lblLocation"
+        lblLocation.Size = New Size(64, 15)
+        lblLocation.TabIndex = 3
+        lblLocation.Text = "LOCATION"
+        '
+        ' txtLocation
+        '
+        txtLocation.BackColor = Color.FromArgb(CByte(14), CByte(12), CByte(21))
+        txtLocation.BorderStyle = BorderStyle.FixedSingle
+        txtLocation.Font = New Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtLocation.ForeColor = Color.White
+        txtLocation.Location = New Point(500, 58)
+        txtLocation.Name = "txtLocation"
+        txtLocation.Size = New Size(160, 27)
+        txtLocation.TabIndex = 4
+        '
         ' btnMarkPlaced
-        ' 
+        '
         btnMarkPlaced.AutoSize = True
         btnMarkPlaced.BackColor = Color.FromArgb(CByte(139), CByte(92), CByte(246))
         btnMarkPlaced.Cursor = Cursors.Hand
@@ -200,12 +225,12 @@ Partial Class ucPlacement
         btnMarkPlaced.Location = New Point(680, 60)
         btnMarkPlaced.Name = "btnMarkPlaced"
         btnMarkPlaced.Size = New Size(210, 35)
-        btnMarkPlaced.TabIndex = 2
+        btnMarkPlaced.TabIndex = 5
         btnMarkPlaced.Text = "MARK AS PLACED"
         btnMarkPlaced.UseVisualStyleBackColor = False
-        ' 
+        '
         ' lblPLdesc
-        ' 
+        '
         lblPLdesc.AutoSize = True
         lblPLdesc.BackColor = Color.Transparent
         lblPLdesc.Font = New Font("Segoe UI", 9.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
@@ -214,10 +239,10 @@ Partial Class ucPlacement
         lblPLdesc.Name = "lblPLdesc"
         lblPLdesc.Size = New Size(255, 15)
         lblPLdesc.TabIndex = 1
-        lblPLdesc.Text = "Select an item below, then mark it placed."
-        ' 
+        lblPLdesc.Text = "Select an item below, set its location, then mark it placed."
+        '
         ' lblPLhandling
-        ' 
+        '
         lblPLhandling.AutoSize = True
         lblPLhandling.BackColor = Color.Transparent
         lblPLhandling.Font = New Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
@@ -227,9 +252,9 @@ Partial Class ucPlacement
         lblPLhandling.Size = New Size(280, 40)
         lblPLhandling.TabIndex = 0
         lblPLhandling.Text = "Item Placement"
-        ' 
+        '
         ' ucPlacement
-        ' 
+        '
         AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(8), CByte(8), CByte(12))
@@ -238,28 +263,28 @@ Partial Class ucPlacement
         Size = New Size(963, 619)
         pnlMain.ResumeLayout(False)
         pnlMain.PerformLayout()
-        pnlPlacementSummary.ResumeLayout(False)
-        pnlPlacementSummary.PerformLayout()
         pnlTransactions.ResumeLayout(False)
-        CType(dgvPlacement, ComponentModel.ISupportInitialize).EndInit()
+        CType(dgvPlaced, ComponentModel.ISupportInitialize).EndInit()
+        CType(dgvAwaiting, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
 
     Friend WithEvents pnlMain As Panel
-    Friend WithEvents pnlPlacementSummary As Panel
-    Friend WithEvents lblPlacementSummaryStatus As Label
-    Friend WithEvents lblPlacementSummaryInfo As Label
-    Friend WithEvents lblPlacementSummaryTitle As Label
     Friend WithEvents pnlTransactions As Panel
-    Friend WithEvents dgvPlacement As DataGridView
+    Friend WithEvents dgvAwaiting As DataGridView
     Friend WithEvents colItemID As DataGridViewTextBoxColumn
     Friend WithEvents colItemName As DataGridViewTextBoxColumn
     Friend WithEvents colCategory As DataGridViewTextBoxColumn
     Friend WithEvents colQuantity As DataGridViewTextBoxColumn
     Friend WithEvents colDateAdded As DataGridViewTextBoxColumn
+    Friend WithEvents lblAwaitingHeader As Label
+    Friend WithEvents dgvPlaced As DataGridView
+    Friend WithEvents lblPlacedHeader As Label
     Friend WithEvents lblRecentTitle As Label
     Friend WithEvents btnMarkPlaced As Button
+    Friend WithEvents txtLocation As TextBox
+    Friend WithEvents lblLocation As Label
     Friend WithEvents lblPLdesc As Label
     Friend WithEvents lblPLhandling As Label
 
