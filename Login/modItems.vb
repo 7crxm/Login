@@ -54,6 +54,34 @@ Module modItems
                          "FROM dbo.Items WHERE Status = 'Returned' ORDER BY ReturnDate DESC")
     End Function
 
+    ''' A merged, real activity feed — arrivals, placements, sales, and returns, newest first.
+    ''' Backs the dashboard's "Recent Transactions" list. Built from the same date columns
+    ''' each screen already stamps (DateAdded/DatePlaced/SoldDate/ReturnDate) — no new schema.
+    Public Function GetRecentActivity(topN As Integer) As DataTable
+        Dim sql As String =
+            "SELECT TOP (@TopN) * FROM (" &
+            "  SELECT ItemName, 'IN' AS EventType, Quantity, DateAdded AS EventDate FROM dbo.Items" &
+            "  UNION ALL" &
+            "  SELECT ItemName, 'PLACED', Quantity, DatePlaced FROM dbo.Items WHERE DatePlaced IS NOT NULL" &
+            "  UNION ALL" &
+            "  SELECT ItemName, 'SOLD', Quantity, SoldDate FROM dbo.Items WHERE SoldDate IS NOT NULL" &
+            "  UNION ALL" &
+            "  SELECT ItemName, 'RETURNED', Quantity, ReturnDate FROM dbo.Items WHERE ReturnDate IS NOT NULL" &
+            ") AS Activity ORDER BY EventDate DESC"
+
+        Dim dt As New DataTable()
+        Using conn As New SqlConnection(modDatabase.ConnString)
+            Using cmd As New SqlCommand(sql, conn)
+                cmd.Parameters.AddWithValue("@TopN", topN)
+                conn.Open()
+                Using adapter As New SqlDataAdapter(cmd)
+                    adapter.Fill(dt)
+                End Using
+            End Using
+        End Using
+        Return dt
+    End Function
+
     ''' Logs a new arrival with Status = 'In Stock'.
     Public Sub AddItem(itemName As String, category As String, quantity As Integer)
         Using conn As New SqlConnection(modDatabase.ConnString)

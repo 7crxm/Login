@@ -30,7 +30,6 @@ Partial Class frmDashboard
         btnPlacement = New Button()
         btnBuyingReturns = New Button()
         btnSupplier = New Button()
-        btnItemsOUT = New Button()
         btnItemsINandOUT = New Button()
         btnDashboard = New Button()
         Label1 = New Label()
@@ -127,7 +126,6 @@ Partial Class frmDashboard
         pnlSidebar.Controls.Add(btnPlacement)
         pnlSidebar.Controls.Add(btnBuyingReturns)
         pnlSidebar.Controls.Add(btnSupplier)
-        pnlSidebar.Controls.Add(btnItemsOUT)
         pnlSidebar.Controls.Add(btnItemsINandOUT)
         pnlSidebar.Controls.Add(btnDashboard)
         pnlSidebar.Controls.Add(Label1)
@@ -179,7 +177,7 @@ Partial Class frmDashboard
         btnBuyingReturns.FlatStyle = FlatStyle.Flat
         btnBuyingReturns.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         btnBuyingReturns.ForeColor = Color.FromArgb(CByte(212), CByte(212), CByte(216))
-        btnBuyingReturns.Location = New Point(15, 315)
+        btnBuyingReturns.Location = New Point(15, 314)
         btnBuyingReturns.Name = "btnBuyingReturns"
         btnBuyingReturns.Padding = New Padding(15, 0, 0, 0)
         btnBuyingReturns.Size = New Size(210, 45)
@@ -204,23 +202,6 @@ Partial Class frmDashboard
         btnSupplier.Text = "Supplier Information"
         btnSupplier.TextAlign = ContentAlignment.MiddleLeft
         btnSupplier.UseVisualStyleBackColor = False
-        ' 
-        ' btnItemsOUT
-        ' 
-        btnItemsOUT.BackColor = Color.FromArgb(CByte(16), CByte(16), CByte(22))
-        btnItemsOUT.Cursor = Cursors.Hand
-        btnItemsOUT.FlatAppearance.BorderSize = 0
-        btnItemsOUT.FlatStyle = FlatStyle.Flat
-        btnItemsOUT.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        btnItemsOUT.ForeColor = Color.FromArgb(CByte(212), CByte(212), CByte(216))
-        btnItemsOUT.Location = New Point(15, 366)
-        btnItemsOUT.Name = "btnItemsOUT"
-        btnItemsOUT.Padding = New Padding(15, 0, 0, 0)
-        btnItemsOUT.Size = New Size(210, 45)
-        btnItemsOUT.TabIndex = 4
-        btnItemsOUT.Text = "Items OUT Handling"
-        btnItemsOUT.TextAlign = ContentAlignment.MiddleLeft
-        btnItemsOUT.UseVisualStyleBackColor = False
         ' 
         ' btnItemsINandOUT
         ' 
@@ -712,7 +693,6 @@ Partial Class frmDashboard
     Friend WithEvents Label1 As Label
     Friend WithEvents lblShopName As Label
     Friend WithEvents btnDashboard As Button
-    Friend WithEvents btnItemsOUT As Button
     Friend WithEvents btnItemsINandOUT As Button
     Friend WithEvents btnPlacement As Button
     Friend WithEvents btnBuyingReturns As Button

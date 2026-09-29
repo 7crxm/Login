@@ -6,7 +6,6 @@
         ' Reset all buttons to normal color
         btnDashboard.BackColor = Color.FromArgb(16, 16, 22)
         btnItemsINandOUT.BackColor = Color.FromArgb(16, 16, 22)
-        btnItemsOUT.BackColor = Color.FromArgb(16, 16, 22)
         btnSupplier.BackColor = Color.FromArgb(16, 16, 22)
         btnBuyingReturns.BackColor = Color.FromArgb(16, 16, 22)
         btnPlacement.BackColor = Color.FromArgb(16, 16, 22)
@@ -56,11 +55,6 @@
 
         ' 3. Drop it into the panel to display it on screen
         pnlHome.Controls.Add(page)
-    End Sub
-
-    Private Sub btnItemsOUT_Click(sender As Object, e As EventArgs) Handles btnItemsOUT.Click
-        SetActiveButton(btnItemsOUT)
-        LoadSubPage(New ucItemsOut())
     End Sub
 
     Private Sub btnSupplier_Click(sender As Object, e As EventArgs) Handles btnSupplier.Click
