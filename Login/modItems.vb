@@ -22,16 +22,36 @@ Module modItems
                          "FROM dbo.Items WHERE Status = 'Placed' ORDER BY DatePlaced DESC")
     End Function
 
-    ''' Items not yet sold (In Stock or Placed). Backs the left-hand grid in ucItemsInAndOut.
+    ''' Items not yet sold (In Stock, Placed, or Returned). Backs the left-hand grid in ucItemsInAndOut.
+    ''' Returned items land back here because they're Status <> 'Sold' again.
     Public Function GetInStockItems() As DataTable
         Return RunQuery("SELECT ItemID, ItemName, Category, Quantity " &
                          "FROM dbo.Items WHERE Status <> 'Sold' ORDER BY ItemID DESC")
     End Function
 
-    ''' Items already sold. Backs the right-hand grid in ucItemsInAndOut.
+    ''' Items already sold. Backs the right-hand grid in ucItemsInAndOut and the Return dropdown.
     Public Function GetSoldItems() As DataTable
         Return RunQuery("SELECT ItemID, ItemName, Category, Quantity, Price " &
                          "FROM dbo.Items WHERE Status = 'Sold' ORDER BY ItemID DESC")
+    End Function
+
+    ''' In-stock items with no supplier tagged yet. Backs the Buy dropdown in ucBuyingReturns.
+    Public Function GetUntaggedItems() As DataTable
+        Return RunQuery("SELECT ItemID, ItemName, Category, Quantity " &
+                         "FROM dbo.Items WHERE Status <> 'Sold' AND SupplierID IS NULL ORDER BY ItemID DESC")
+    End Function
+
+    ''' Items tagged with a supplier and cost. Backs the Purchases grid in ucBuyingReturns.
+    Public Function GetPurchaseLog() As DataTable
+        Return RunQuery("SELECT i.ItemID, i.ItemName, i.Category, s.Name AS Supplier, i.Cost " &
+                         "FROM dbo.Items i JOIN dbo.Suppliers s ON i.SupplierID = s.SupplierID " &
+                         "ORDER BY i.ItemID DESC")
+    End Function
+
+    ''' Items that came back after being sold. Backs the Returns grid in ucBuyingReturns.
+    Public Function GetReturnLog() As DataTable
+        Return RunQuery("SELECT ItemID, ItemName, Category, Quantity, ReturnAmount, ReturnDate " &
+                         "FROM dbo.Items WHERE Status = 'Returned' ORDER BY ReturnDate DESC")
     End Function
 
     ''' Logs a new arrival with Status = 'In Stock'.
@@ -83,6 +103,34 @@ Module modItems
         Using conn As New SqlConnection(modDatabase.ConnString)
             Dim sql As String = "DELETE FROM dbo.Items WHERE ItemID = @ItemID"
             Using cmd As New SqlCommand(sql, conn)
+                cmd.Parameters.AddWithValue("@ItemID", itemId)
+                conn.Open()
+                cmd.ExecuteNonQuery()
+            End Using
+        End Using
+    End Sub
+
+    ''' Tags an in-stock item with the supplier it was bought from and its cost.
+    Public Sub LogPurchase(itemId As Integer, supplierId As Integer, cost As Decimal)
+        Using conn As New SqlConnection(modDatabase.ConnString)
+            Dim sql As String = "UPDATE dbo.Items SET SupplierID = @SupplierID, Cost = @Cost WHERE ItemID = @ItemID"
+            Using cmd As New SqlCommand(sql, conn)
+                cmd.Parameters.AddWithValue("@SupplierID", supplierId)
+                cmd.Parameters.AddWithValue("@Cost", cost)
+                cmd.Parameters.AddWithValue("@ItemID", itemId)
+                conn.Open()
+                cmd.ExecuteNonQuery()
+            End Using
+        End Using
+    End Sub
+
+    ''' Marks a sold item as returned and puts it back in stock (Status <> 'Sold').
+    Public Sub LogReturn(itemId As Integer, returnAmount As Decimal)
+        Using conn As New SqlConnection(modDatabase.ConnString)
+            Dim sql As String = "UPDATE dbo.Items SET Status = 'Returned', ReturnAmount = @ReturnAmount, ReturnDate = SYSDATETIME() " &
+                                 "WHERE ItemID = @ItemID"
+            Using cmd As New SqlCommand(sql, conn)
+                cmd.Parameters.AddWithValue("@ReturnAmount", returnAmount)
                 cmd.Parameters.AddWithValue("@ItemID", itemId)
                 conn.Open()
                 cmd.ExecuteNonQuery()
