@@ -71,4 +71,17 @@
         SetActiveButton(btnPlacement)
         LoadSubPage(New ucPlacement())
     End Sub
+
+    Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
+
+        Dim confirm = MessageBox.Show("Are you sure you want to log out?", "Unicloth",
+                                   MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+        If confirm = DialogResult.Yes Then
+            Dim login As New frmLogin()
+            login.Show()
+            Me.Close()
+        End If
+
+    End Sub
 End Class
