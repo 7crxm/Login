@@ -30,8 +30,7 @@ Partial Class frmDashboard
         btnPlacement = New Button()
         btnBuyingReturns = New Button()
         btnSupplier = New Button()
-        btnItemsOUT = New Button()
-        btnItemsIN = New Button()
+        btnItemsINandOUT = New Button()
         btnDashboard = New Button()
         Label1 = New Label()
         lblShopName = New Label()
@@ -127,8 +126,7 @@ Partial Class frmDashboard
         pnlSidebar.Controls.Add(btnPlacement)
         pnlSidebar.Controls.Add(btnBuyingReturns)
         pnlSidebar.Controls.Add(btnSupplier)
-        pnlSidebar.Controls.Add(btnItemsOUT)
-        pnlSidebar.Controls.Add(btnItemsIN)
+        pnlSidebar.Controls.Add(btnItemsINandOUT)
         pnlSidebar.Controls.Add(btnDashboard)
         pnlSidebar.Controls.Add(Label1)
         pnlSidebar.Controls.Add(lblShopName)
@@ -162,7 +160,7 @@ Partial Class frmDashboard
         btnPlacement.FlatStyle = FlatStyle.Flat
         btnPlacement.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         btnPlacement.ForeColor = Color.FromArgb(CByte(212), CByte(212), CByte(216))
-        btnPlacement.Location = New Point(15, 365)
+        btnPlacement.Location = New Point(15, 215)
         btnPlacement.Name = "btnPlacement"
         btnPlacement.Padding = New Padding(15, 0, 0, 0)
         btnPlacement.Size = New Size(210, 45)
@@ -179,7 +177,7 @@ Partial Class frmDashboard
         btnBuyingReturns.FlatStyle = FlatStyle.Flat
         btnBuyingReturns.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         btnBuyingReturns.ForeColor = Color.FromArgb(CByte(212), CByte(212), CByte(216))
-        btnBuyingReturns.Location = New Point(15, 315)
+        btnBuyingReturns.Location = New Point(15, 314)
         btnBuyingReturns.Name = "btnBuyingReturns"
         btnBuyingReturns.Padding = New Padding(15, 0, 0, 0)
         btnBuyingReturns.Size = New Size(210, 45)
@@ -205,39 +203,22 @@ Partial Class frmDashboard
         btnSupplier.TextAlign = ContentAlignment.MiddleLeft
         btnSupplier.UseVisualStyleBackColor = False
         ' 
-        ' btnItemsOUT
+        ' btnItemsINandOUT
         ' 
-        btnItemsOUT.BackColor = Color.FromArgb(CByte(16), CByte(16), CByte(22))
-        btnItemsOUT.Cursor = Cursors.Hand
-        btnItemsOUT.FlatAppearance.BorderSize = 0
-        btnItemsOUT.FlatStyle = FlatStyle.Flat
-        btnItemsOUT.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        btnItemsOUT.ForeColor = Color.FromArgb(CByte(212), CByte(212), CByte(216))
-        btnItemsOUT.Location = New Point(15, 215)
-        btnItemsOUT.Name = "btnItemsOUT"
-        btnItemsOUT.Padding = New Padding(15, 0, 0, 0)
-        btnItemsOUT.Size = New Size(210, 45)
-        btnItemsOUT.TabIndex = 4
-        btnItemsOUT.Text = "Items OUT Handling"
-        btnItemsOUT.TextAlign = ContentAlignment.MiddleLeft
-        btnItemsOUT.UseVisualStyleBackColor = False
-        ' 
-        ' btnItemsIN
-        ' 
-        btnItemsIN.BackColor = Color.FromArgb(CByte(16), CByte(16), CByte(22))
-        btnItemsIN.Cursor = Cursors.Hand
-        btnItemsIN.FlatAppearance.BorderSize = 0
-        btnItemsIN.FlatStyle = FlatStyle.Flat
-        btnItemsIN.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        btnItemsIN.ForeColor = Color.FromArgb(CByte(212), CByte(212), CByte(216))
-        btnItemsIN.Location = New Point(15, 165)
-        btnItemsIN.Name = "btnItemsIN"
-        btnItemsIN.Padding = New Padding(15, 0, 0, 0)
-        btnItemsIN.Size = New Size(210, 45)
-        btnItemsIN.TabIndex = 3
-        btnItemsIN.Text = "Items IN Handling"
-        btnItemsIN.TextAlign = ContentAlignment.MiddleLeft
-        btnItemsIN.UseVisualStyleBackColor = False
+        btnItemsINandOUT.BackColor = Color.FromArgb(CByte(16), CByte(16), CByte(22))
+        btnItemsINandOUT.Cursor = Cursors.Hand
+        btnItemsINandOUT.FlatAppearance.BorderSize = 0
+        btnItemsINandOUT.FlatStyle = FlatStyle.Flat
+        btnItemsINandOUT.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        btnItemsINandOUT.ForeColor = Color.FromArgb(CByte(212), CByte(212), CByte(216))
+        btnItemsINandOUT.Location = New Point(15, 165)
+        btnItemsINandOUT.Name = "btnItemsINandOUT"
+        btnItemsINandOUT.Padding = New Padding(15, 0, 0, 0)
+        btnItemsINandOUT.Size = New Size(210, 45)
+        btnItemsINandOUT.TabIndex = 3
+        btnItemsINandOUT.Text = "Items IN / OUT Handling"
+        btnItemsINandOUT.TextAlign = ContentAlignment.MiddleLeft
+        btnItemsINandOUT.UseVisualStyleBackColor = False
         ' 
         ' btnDashboard
         ' 
@@ -712,8 +693,7 @@ Partial Class frmDashboard
     Friend WithEvents Label1 As Label
     Friend WithEvents lblShopName As Label
     Friend WithEvents btnDashboard As Button
-    Friend WithEvents btnItemsOUT As Button
-    Friend WithEvents btnItemsIN As Button
+    Friend WithEvents btnItemsINandOUT As Button
     Friend WithEvents btnPlacement As Button
     Friend WithEvents btnBuyingReturns As Button
     Friend WithEvents btnSupplier As Button

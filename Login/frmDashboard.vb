@@ -5,8 +5,7 @@
 
         ' Reset all buttons to normal color
         btnDashboard.BackColor = Color.FromArgb(16, 16, 22)
-        btnItemsIN.BackColor = Color.FromArgb(16, 16, 22)
-        btnItemsOUT.BackColor = Color.FromArgb(16, 16, 22)
+        btnItemsINandOUT.BackColor = Color.FromArgb(16, 16, 22)
         btnSupplier.BackColor = Color.FromArgb(16, 16, 22)
         btnBuyingReturns.BackColor = Color.FromArgb(16, 16, 22)
         btnPlacement.BackColor = Color.FromArgb(16, 16, 22)
@@ -40,9 +39,9 @@
     ' Navigates to the Items In page
 
 
-    Private Sub btnItemsIN_Click(sender As Object, e As EventArgs) Handles btnItemsIN.Click
-        SetActiveButton(btnItemsIN)
-        LoadSubPage(New ucItemsIn())
+    Private Sub btnItemsIN_Click(sender As Object, e As EventArgs) Handles btnItemsINandOUT.Click
+        SetActiveButton(btnItemsINandOUT)
+        LoadSubPage(New ucItemsInAndOut())
     End Sub
 
 
@@ -58,11 +57,6 @@
         pnlHome.Controls.Add(page)
     End Sub
 
-    Private Sub btnItemsOUT_Click(sender As Object, e As EventArgs) Handles btnItemsOUT.Click
-        SetActiveButton(btnItemsOUT)
-        LoadSubPage(New ucItemsOut())
-    End Sub
-
     Private Sub btnSupplier_Click(sender As Object, e As EventArgs) Handles btnSupplier.Click
         SetActiveButton(btnSupplier)
         LoadSubPage(New ucSupplier())
@@ -76,5 +70,18 @@
     Private Sub btnPlacement_Click(sender As Object, e As EventArgs) Handles btnPlacement.Click
         SetActiveButton(btnPlacement)
         LoadSubPage(New ucPlacement())
+    End Sub
+
+    Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
+
+        Dim confirm = MessageBox.Show("Are you sure you want to log out?", "Unicloth",
+                                   MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+        If confirm = DialogResult.Yes Then
+            Dim login As New frmLogin()
+            login.Show()
+            Me.Close()
+        End If
+
     End Sub
 End Class

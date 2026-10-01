@@ -1,8 +1,8 @@
-<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class ucPlacement
     Inherits System.Windows.Forms.UserControl
 
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -15,377 +15,204 @@ Partial Class ucPlacement
 
     Private components As System.ComponentModel.IContainer
 
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         pnlMain = New Panel()
-        pnlPlacementSummary = New Panel()
-        lblPlacementSummaryStatus = New Label()
-        lblPlacementSummaryInfo = New Label()
-        lblPlacementSummaryTitle = New Label()
         pnlTransactions = New Panel()
-        lblDate3 = New Label()
-        lblStatus3 = New Label()
-        lblQty3 = New Label()
-        lblPLitem3 = New Label()
-        lblDate2 = New Label()
-        lblStatus2 = New Label()
-        lblQty2 = New Label()
-        lblPLitem2 = New Label()
-        lblDate1 = New Label()
-        lblStatus1 = New Label()
-        lblQty1 = New Label()
-        lblPLitem1 = New Label()
-        lblHeaderDate = New Label()
-        lblHeaderStatus = New Label()
-        lblHeaderQty = New Label()
-        lblHeaderItem = New Label()
+        dgvPlaced = New DataGridView()
+        lblPlacedHeader = New Label()
+        dgvAwaiting = New DataGridView()
+        colItemID = New DataGridViewTextBoxColumn()
+        colItemName = New DataGridViewTextBoxColumn()
+        colCategory = New DataGridViewTextBoxColumn()
+        colQuantity = New DataGridViewTextBoxColumn()
+        colDateAdded = New DataGridViewTextBoxColumn()
+        lblAwaitingHeader = New Label()
         lblRecentTitle = New Label()
-        pnlPlacementForm = New Panel()
         btnMarkPlaced = New Button()
         txtLocation = New TextBox()
-        lblPLLocation = New Label()
-        txtQty = New TextBox()
-        lblPLQty = New Label()
-        txtItemName = New TextBox()
-        lblPLItemField = New Label()
+        lblLocation = New Label()
         lblPLdesc = New Label()
         lblPLhandling = New Label()
         pnlMain.SuspendLayout()
-        pnlPlacementSummary.SuspendLayout()
         pnlTransactions.SuspendLayout()
-        pnlPlacementForm.SuspendLayout()
+        CType(dgvPlaced, ComponentModel.ISupportInitialize).BeginInit()
+        CType(dgvAwaiting, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
-        ' 
+        '
         ' pnlMain
-        ' 
-        pnlMain.Controls.Add(pnlPlacementSummary)
-        pnlMain.Controls.Add(lblPlacementSummaryTitle)
+        '
         pnlMain.Controls.Add(pnlTransactions)
         pnlMain.Controls.Add(lblRecentTitle)
-        pnlMain.Controls.Add(pnlPlacementForm)
+        pnlMain.Controls.Add(btnMarkPlaced)
+        pnlMain.Controls.Add(txtLocation)
+        pnlMain.Controls.Add(lblLocation)
         pnlMain.Controls.Add(lblPLdesc)
         pnlMain.Controls.Add(lblPLhandling)
         pnlMain.Location = New Point(3, 0)
         pnlMain.Name = "pnlMain"
         pnlMain.Size = New Size(960, 630)
         pnlMain.TabIndex = 3
-        ' 
-        ' pnlPlacementSummary
-        ' 
-        pnlPlacementSummary.BackColor = Color.FromArgb(CByte(22), CByte(22), CByte(31))
-        pnlPlacementSummary.Controls.Add(lblPlacementSummaryStatus)
-        pnlPlacementSummary.Controls.Add(lblPlacementSummaryInfo)
-        pnlPlacementSummary.Location = New Point(35, 524)
-        pnlPlacementSummary.Name = "pnlPlacementSummary"
-        pnlPlacementSummary.Size = New Size(855, 55)
-        pnlPlacementSummary.TabIndex = 8
-        ' 
-        ' lblPlacementSummaryStatus
-        ' 
-        lblPlacementSummaryStatus.AutoSize = True
-        lblPlacementSummaryStatus.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        lblPlacementSummaryStatus.ForeColor = Color.FromArgb(CByte(168), CByte(85), CByte(247))
-        lblPlacementSummaryStatus.Location = New Point(750, 20)
-        lblPlacementSummaryStatus.Name = "lblPlacementSummaryStatus"
-        lblPlacementSummaryStatus.Size = New Size(45, 15)
-        lblPlacementSummaryStatus.TabIndex = 10
-        lblPlacementSummaryStatus.Text = "READY"
-        ' 
-        ' lblPlacementSummaryInfo
-        ' 
-        lblPlacementSummaryInfo.AutoSize = True
-        lblPlacementSummaryInfo.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        lblPlacementSummaryInfo.ForeColor = Color.FromArgb(CByte(161), CByte(161), CByte(170))
-        lblPlacementSummaryInfo.Location = New Point(20, 19)
-        lblPlacementSummaryInfo.Name = "lblPlacementSummaryInfo"
-        lblPlacementSummaryInfo.Size = New Size(199, 15)
-        lblPlacementSummaryInfo.TabIndex = 9
-        lblPlacementSummaryInfo.Text = "67 items scheduled for display today"
-        ' 
-        ' lblPlacementSummaryTitle
-        ' 
-        lblPlacementSummaryTitle.AutoSize = True
-        lblPlacementSummaryTitle.Font = New Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        lblPlacementSummaryTitle.ForeColor = Color.White
-        lblPlacementSummaryTitle.Location = New Point(35, 498)
-        lblPlacementSummaryTitle.Name = "lblPlacementSummaryTitle"
-        lblPlacementSummaryTitle.Size = New Size(128, 20)
-        lblPlacementSummaryTitle.TabIndex = 7
-        lblPlacementSummaryTitle.Text = "ITEM PLACEMENT"
-        ' 
+        '
         ' pnlTransactions
-        ' 
+        '
         pnlTransactions.BackColor = Color.FromArgb(CByte(16), CByte(16), CByte(22))
-        pnlTransactions.Controls.Add(lblDate3)
-        pnlTransactions.Controls.Add(lblStatus3)
-        pnlTransactions.Controls.Add(lblQty3)
-        pnlTransactions.Controls.Add(lblPLitem3)
-        pnlTransactions.Controls.Add(lblDate2)
-        pnlTransactions.Controls.Add(lblStatus2)
-        pnlTransactions.Controls.Add(lblQty2)
-        pnlTransactions.Controls.Add(lblPLitem2)
-        pnlTransactions.Controls.Add(lblDate1)
-        pnlTransactions.Controls.Add(lblStatus1)
-        pnlTransactions.Controls.Add(lblQty1)
-        pnlTransactions.Controls.Add(lblPLitem1)
-        pnlTransactions.Controls.Add(lblHeaderDate)
-        pnlTransactions.Controls.Add(lblHeaderStatus)
-        pnlTransactions.Controls.Add(lblHeaderQty)
-        pnlTransactions.Controls.Add(lblHeaderItem)
-        pnlTransactions.Location = New Point(35, 315)
+        pnlTransactions.Controls.Add(dgvPlaced)
+        pnlTransactions.Controls.Add(lblPlacedHeader)
+        pnlTransactions.Controls.Add(dgvAwaiting)
+        pnlTransactions.Controls.Add(lblAwaitingHeader)
+        pnlTransactions.Location = New Point(35, 140)
         pnlTransactions.Name = "pnlTransactions"
-        pnlTransactions.Size = New Size(855, 180)
+        pnlTransactions.Padding = New Padding(10)
+        pnlTransactions.Size = New Size(855, 374)
         pnlTransactions.TabIndex = 6
-        ' 
-        ' lblHeaderItem
-        ' 
-        lblHeaderItem.AutoSize = True
-        lblHeaderItem.ForeColor = Color.FromArgb(CByte(161), CByte(161), CByte(170))
-        lblHeaderItem.Location = New Point(20, 15)
-        lblHeaderItem.Name = "lblHeaderItem"
-        lblHeaderItem.Size = New Size(33, 15)
-        lblHeaderItem.TabIndex = 0
-        lblHeaderItem.Text = "ITEM"
-        ' 
-        ' lblHeaderQty
-        ' 
-        lblHeaderQty.AutoSize = True
-        lblHeaderQty.ForeColor = Color.FromArgb(CByte(161), CByte(161), CByte(170))
-        lblHeaderQty.Location = New Point(248, 15)
-        lblHeaderQty.Name = "lblHeaderQty"
-        lblHeaderQty.Size = New Size(28, 15)
-        lblHeaderQty.TabIndex = 1
-        lblHeaderQty.Text = "QTY"
-        ' 
-        ' lblHeaderStatus
-        ' 
-        lblHeaderStatus.AutoSize = True
-        lblHeaderStatus.ForeColor = Color.FromArgb(CByte(161), CByte(161), CByte(170))
-        lblHeaderStatus.Location = New Point(434, 15)
-        lblHeaderStatus.Name = "lblHeaderStatus"
-        lblHeaderStatus.Size = New Size(45, 15)
-        lblHeaderStatus.TabIndex = 2
-        lblHeaderStatus.Text = "STATUS"
-        ' 
-        ' lblHeaderDate
-        ' 
-        lblHeaderDate.AutoSize = True
-        lblHeaderDate.ForeColor = Color.FromArgb(CByte(161), CByte(161), CByte(170))
-        lblHeaderDate.Location = New Point(549, 15)
-        lblHeaderDate.Name = "lblHeaderDate"
-        lblHeaderDate.Size = New Size(52, 15)
-        lblHeaderDate.TabIndex = 3
-        lblHeaderDate.Text = "ARRIVED"
-        ' 
-        ' lblPLitem1
-        ' 
-        lblPLitem1.AutoSize = True
-        lblPLitem1.ForeColor = Color.White
-        lblPLitem1.Location = New Point(20, 55)
-        lblPLitem1.Name = "lblPLitem1"
-        lblPLitem1.Size = New Size(42, 15)
-        lblPLitem1.TabIndex = 4
-        lblPLitem1.Text = "T-Shirt"
-        ' 
-        ' lblQty1
-        ' 
-        lblQty1.AutoSize = True
-        lblQty1.ForeColor = Color.White
-        lblQty1.Location = New Point(248, 55)
-        lblQty1.Name = "lblQty1"
-        lblQty1.Size = New Size(19, 15)
-        lblQty1.TabIndex = 5
-        lblQty1.Text = "20"
-        ' 
-        ' lblStatus1
-        ' 
-        lblStatus1.AutoSize = True
-        lblStatus1.ForeColor = Color.FromArgb(CByte(168), CByte(85), CByte(247))
-        lblStatus1.Location = New Point(434, 55)
-        lblStatus1.Name = "lblStatus1"
-        lblStatus1.Size = New Size(49, 15)
-        lblStatus1.TabIndex = 6
-        lblStatus1.Text = "In Stock"
-        ' 
-        ' lblDate1
-        ' 
-        lblDate1.AutoSize = True
-        lblDate1.ForeColor = Color.FromArgb(CByte(161), CByte(161), CByte(170))
-        lblDate1.Location = New Point(549, 55)
-        lblDate1.Name = "lblDate1"
-        lblDate1.Size = New Size(65, 15)
-        lblDate1.TabIndex = 7
-        lblDate1.Text = "Sep 5, 2026"
-        ' 
-        ' lblPLitem2
-        ' 
-        lblPLitem2.AutoSize = True
-        lblPLitem2.ForeColor = Color.White
-        lblPLitem2.Location = New Point(20, 90)
-        lblPLitem2.Name = "lblPLitem2"
-        lblPLitem2.Size = New Size(75, 15)
-        lblPLitem2.TabIndex = 8
-        lblPLitem2.Text = "Denim Jacket"
-        ' 
-        ' lblQty2
-        ' 
-        lblQty2.AutoSize = True
-        lblQty2.ForeColor = Color.White
-        lblQty2.Location = New Point(248, 90)
-        lblQty2.Name = "lblQty2"
-        lblQty2.Size = New Size(13, 15)
-        lblQty2.TabIndex = 9
-        lblQty2.Text = "8"
-        ' 
-        ' lblStatus2
-        ' 
-        lblStatus2.AutoSize = True
-        lblStatus2.ForeColor = Color.FromArgb(CByte(168), CByte(85), CByte(247))
-        lblStatus2.Location = New Point(434, 90)
-        lblStatus2.Name = "lblStatus2"
-        lblStatus2.Size = New Size(49, 15)
-        lblStatus2.TabIndex = 10
-        lblStatus2.Text = "In Stock"
-        ' 
-        ' lblDate2
-        ' 
-        lblDate2.AutoSize = True
-        lblDate2.ForeColor = Color.FromArgb(CByte(161), CByte(161), CByte(170))
-        lblDate2.Location = New Point(549, 90)
-        lblDate2.Name = "lblDate2"
-        lblDate2.Size = New Size(65, 15)
-        lblDate2.TabIndex = 11
-        lblDate2.Text = "Sep 6, 2026"
-        ' 
-        ' lblPLitem3
-        ' 
-        lblPLitem3.AutoSize = True
-        lblPLitem3.ForeColor = Color.White
-        lblPLitem3.Location = New Point(20, 125)
-        lblPLitem3.Name = "lblPLitem3"
-        lblPLitem3.Size = New Size(75, 15)
-        lblPLitem3.TabIndex = 12
-        lblPLitem3.Text = "Cargo Pants"
-        ' 
-        ' lblQty3
-        ' 
-        lblQty3.AutoSize = True
-        lblQty3.ForeColor = Color.White
-        lblQty3.Location = New Point(248, 125)
-        lblQty3.Name = "lblQty3"
-        lblQty3.Size = New Size(19, 15)
-        lblQty3.TabIndex = 13
-        lblQty3.Text = "15"
-        ' 
-        ' lblStatus3
-        ' 
-        lblStatus3.AutoSize = True
-        lblStatus3.ForeColor = Color.FromArgb(CByte(168), CByte(85), CByte(247))
-        lblStatus3.Location = New Point(434, 125)
-        lblStatus3.Name = "lblStatus3"
-        lblStatus3.Size = New Size(49, 15)
-        lblStatus3.TabIndex = 14
-        lblStatus3.Text = "In Stock"
-        ' 
-        ' lblDate3
-        ' 
-        lblDate3.AutoSize = True
-        lblDate3.ForeColor = Color.FromArgb(CByte(161), CByte(161), CByte(170))
-        lblDate3.Location = New Point(549, 125)
-        lblDate3.Name = "lblDate3"
-        lblDate3.Size = New Size(65, 15)
-        lblDate3.TabIndex = 15
-        lblDate3.Text = "Sep 4, 2026"
-        ' 
+        '
+        ' lblAwaitingHeader
+        '
+        lblAwaitingHeader.AutoSize = True
+        lblAwaitingHeader.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblAwaitingHeader.ForeColor = Color.White
+        lblAwaitingHeader.Location = New Point(10, 8)
+        lblAwaitingHeader.Name = "lblAwaitingHeader"
+        lblAwaitingHeader.Size = New Size(140, 17)
+        lblAwaitingHeader.TabIndex = 0
+        lblAwaitingHeader.Text = "AWAITING PLACEMENT"
+        '
+        ' lblPlacedHeader
+        '
+        lblPlacedHeader.AutoSize = True
+        lblPlacedHeader.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblPlacedHeader.ForeColor = Color.White
+        lblPlacedHeader.Location = New Point(430, 8)
+        lblPlacedHeader.Name = "lblPlacedHeader"
+        lblPlacedHeader.Size = New Size(130, 17)
+        lblPlacedHeader.TabIndex = 1
+        lblPlacedHeader.Text = "PLACED (LOCATION)"
+        '
+        ' dgvAwaiting (was dgvPlacement — renamed now that there are two grids)
+        '
+        dgvAwaiting.AllowUserToAddRows = False
+        dgvAwaiting.AllowUserToDeleteRows = False
+        dgvAwaiting.AutoGenerateColumns = False
+        dgvAwaiting.BackgroundColor = Color.FromArgb(CByte(16), CByte(16), CByte(22))
+        dgvAwaiting.BorderStyle = BorderStyle.None
+        dgvAwaiting.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(CByte(22), CByte(22), CByte(31))
+        dgvAwaiting.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(CByte(161), CByte(161), CByte(170))
+        dgvAwaiting.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        dgvAwaiting.Columns.AddRange(New DataGridViewColumn() {colItemID, colItemName, colCategory, colQuantity, colDateAdded})
+        dgvAwaiting.DefaultCellStyle.BackColor = Color.FromArgb(CByte(16), CByte(16), CByte(22))
+        dgvAwaiting.DefaultCellStyle.ForeColor = Color.White
+        dgvAwaiting.DefaultCellStyle.SelectionBackColor = Color.FromArgb(CByte(139), CByte(92), CByte(246))
+        dgvAwaiting.EnableHeadersVisualStyles = False
+        dgvAwaiting.GridColor = Color.FromArgb(CByte(40), CByte(40), CByte(50))
+        dgvAwaiting.Location = New Point(10, 35)
+        dgvAwaiting.MultiSelect = False
+        dgvAwaiting.Name = "dgvAwaiting"
+        dgvAwaiting.ReadOnly = True
+        dgvAwaiting.RowHeadersVisible = False
+        dgvAwaiting.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        dgvAwaiting.Size = New Size(405, 329)
+        dgvAwaiting.TabIndex = 2
+        '
+        ' colItemID
+        '
+        colItemID.DataPropertyName = "ItemID"
+        colItemID.HeaderText = "ID"
+        colItemID.Name = "colItemID"
+        colItemID.ReadOnly = True
+        colItemID.Visible = False
+        '
+        ' colItemName
+        '
+        colItemName.DataPropertyName = "ItemName"
+        colItemName.HeaderText = "ITEM"
+        colItemName.Name = "colItemName"
+        colItemName.ReadOnly = True
+        colItemName.Width = 130
+        '
+        ' colCategory
+        '
+        colCategory.DataPropertyName = "Category"
+        colCategory.HeaderText = "CATEGORY"
+        colCategory.Name = "colCategory"
+        colCategory.ReadOnly = True
+        colCategory.Width = 100
+        '
+        ' colQuantity
+        '
+        colQuantity.DataPropertyName = "Quantity"
+        colQuantity.HeaderText = "QTY"
+        colQuantity.Name = "colQuantity"
+        colQuantity.ReadOnly = True
+        colQuantity.Width = 60
+        '
+        ' colDateAdded
+        '
+        colDateAdded.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        colDateAdded.DataPropertyName = "DateAdded"
+        colDateAdded.DefaultCellStyle.Format = "MMM d, yyyy"
+        colDateAdded.HeaderText = "DATE ADDED"
+        colDateAdded.Name = "colDateAdded"
+        colDateAdded.ReadOnly = True
+        '
+        ' dgvPlaced (Status = 'Placed' — shows where each item currently sits; drops a row the moment it's sold)
+        '
+        dgvPlaced.AllowUserToAddRows = False
+        dgvPlaced.AllowUserToDeleteRows = False
+        dgvPlaced.BackgroundColor = Color.FromArgb(CByte(16), CByte(16), CByte(22))
+        dgvPlaced.BorderStyle = BorderStyle.None
+        dgvPlaced.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(CByte(22), CByte(22), CByte(31))
+        dgvPlaced.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(CByte(161), CByte(161), CByte(170))
+        dgvPlaced.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        dgvPlaced.DefaultCellStyle.BackColor = Color.FromArgb(CByte(16), CByte(16), CByte(22))
+        dgvPlaced.DefaultCellStyle.ForeColor = Color.White
+        dgvPlaced.DefaultCellStyle.SelectionBackColor = Color.FromArgb(CByte(139), CByte(92), CByte(246))
+        dgvPlaced.EnableHeadersVisualStyles = False
+        dgvPlaced.GridColor = Color.FromArgb(CByte(40), CByte(40), CByte(50))
+        dgvPlaced.Location = New Point(430, 35)
+        dgvPlaced.MultiSelect = False
+        dgvPlaced.Name = "dgvPlaced"
+        dgvPlaced.ReadOnly = True
+        dgvPlaced.RowHeadersVisible = False
+        dgvPlaced.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        dgvPlaced.Size = New Size(405, 329)
+        dgvPlaced.TabIndex = 3
+        '
         ' lblRecentTitle
-        ' 
+        '
         lblRecentTitle.AutoSize = True
         lblRecentTitle.BackColor = Color.Transparent
         lblRecentTitle.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblRecentTitle.ForeColor = Color.White
-        lblRecentTitle.Location = New Point(35, 275)
+        lblRecentTitle.Location = New Point(35, 100)
         lblRecentTitle.Name = "lblRecentTitle"
-        lblRecentTitle.Size = New Size(155, 20)
+        lblRecentTitle.Size = New Size(93, 20)
         lblRecentTitle.TabIndex = 5
-        lblRecentTitle.Text = "Waiting for Placement"
-        ' 
-        ' pnlPlacementForm
-        ' 
-        pnlPlacementForm.BackColor = Color.FromArgb(CByte(22), CByte(22), CByte(31))
-        pnlPlacementForm.Controls.Add(btnMarkPlaced)
-        pnlPlacementForm.Controls.Add(txtLocation)
-        pnlPlacementForm.Controls.Add(lblPLLocation)
-        pnlPlacementForm.Controls.Add(txtQty)
-        pnlPlacementForm.Controls.Add(lblPLQty)
-        pnlPlacementForm.Controls.Add(txtItemName)
-        pnlPlacementForm.Controls.Add(lblPLItemField)
-        pnlPlacementForm.Location = New Point(55, 120)
-        pnlPlacementForm.Name = "pnlPlacementForm"
-        pnlPlacementForm.Size = New Size(785, 123)
-        pnlPlacementForm.TabIndex = 2
-        ' 
-        ' lblPLItemField
-        ' 
-        lblPLItemField.ForeColor = Color.FromArgb(CByte(161), CByte(161), CByte(170))
-        lblPLItemField.Location = New Point(36, 20)
-        lblPLItemField.Name = "lblPLItemField"
-        lblPLItemField.Size = New Size(200, 25)
-        lblPLItemField.TabIndex = 0
-        lblPLItemField.Text = "ITEM"
-        ' 
-        ' txtItemName
-        ' 
-        txtItemName.BackColor = Color.FromArgb(CByte(14), CByte(12), CByte(21))
-        txtItemName.BorderStyle = BorderStyle.FixedSingle
-        txtItemName.Font = New Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        txtItemName.ForeColor = Color.White
-        txtItemName.Location = New Point(36, 62)
-        txtItemName.Name = "txtItemName"
-        txtItemName.Size = New Size(160, 27)
-        txtItemName.TabIndex = 12
-        ' 
-        ' lblPLQty
-        ' 
-        lblPLQty.ForeColor = Color.FromArgb(CByte(161), CByte(161), CByte(170))
-        lblPLQty.Location = New Point(228, 20)
-        lblPLQty.Name = "lblPLQty"
-        lblPLQty.Size = New Size(200, 25)
-        lblPLQty.TabIndex = 3
-        lblPLQty.Text = "QUANTITY TO PLACE"
-        ' 
-        ' txtQty
-        ' 
-        txtQty.BackColor = Color.FromArgb(CByte(14), CByte(12), CByte(21))
-        txtQty.BorderStyle = BorderStyle.FixedSingle
-        txtQty.Font = New Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        txtQty.ForeColor = Color.White
-        txtQty.Location = New Point(228, 63)
-        txtQty.Name = "txtQty"
-        txtQty.Size = New Size(115, 27)
-        txtQty.TabIndex = 13
-        ' 
-        ' lblPLLocation
-        ' 
-        lblPLLocation.ForeColor = Color.FromArgb(CByte(161), CByte(161), CByte(170))
-        lblPLLocation.Location = New Point(414, 20)
-        lblPLLocation.Name = "lblPLLocation"
-        lblPLLocation.Size = New Size(200, 25)
-        lblPLLocation.TabIndex = 4
-        lblPLLocation.Text = "DISPLAY AREA"
-        ' 
+        lblRecentTitle.Text = "Placement"
+        '
+        ' lblLocation
+        '
+        lblLocation.AutoSize = True
+        lblLocation.ForeColor = Color.FromArgb(CByte(161), CByte(161), CByte(170))
+        lblLocation.Location = New Point(500, 40)
+        lblLocation.Name = "lblLocation"
+        lblLocation.Size = New Size(64, 15)
+        lblLocation.TabIndex = 3
+        lblLocation.Text = "LOCATION"
+        '
         ' txtLocation
-        ' 
+        '
         txtLocation.BackColor = Color.FromArgb(CByte(14), CByte(12), CByte(21))
         txtLocation.BorderStyle = BorderStyle.FixedSingle
         txtLocation.Font = New Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         txtLocation.ForeColor = Color.White
-        txtLocation.Location = New Point(414, 63)
+        txtLocation.Location = New Point(500, 58)
         txtLocation.Name = "txtLocation"
-        txtLocation.Size = New Size(150, 27)
-        txtLocation.TabIndex = 14
-        ' 
+        txtLocation.Size = New Size(160, 27)
+        txtLocation.TabIndex = 4
+        '
         ' btnMarkPlaced
-        ' 
+        '
         btnMarkPlaced.AutoSize = True
         btnMarkPlaced.BackColor = Color.FromArgb(CByte(139), CByte(92), CByte(246))
         btnMarkPlaced.Cursor = Cursors.Hand
@@ -395,27 +222,27 @@ Partial Class ucPlacement
         btnMarkPlaced.FlatStyle = FlatStyle.Flat
         btnMarkPlaced.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnMarkPlaced.ForeColor = Color.White
-        btnMarkPlaced.Location = New Point(608, 58)
+        btnMarkPlaced.Location = New Point(680, 60)
         btnMarkPlaced.Name = "btnMarkPlaced"
-        btnMarkPlaced.Size = New Size(135, 32)
-        btnMarkPlaced.TabIndex = 11
-        btnMarkPlaced.Text = "MARK PLACED"
+        btnMarkPlaced.Size = New Size(210, 35)
+        btnMarkPlaced.TabIndex = 5
+        btnMarkPlaced.Text = "MARK AS PLACED"
         btnMarkPlaced.UseVisualStyleBackColor = False
-        ' 
+        '
         ' lblPLdesc
-        ' 
+        '
         lblPLdesc.AutoSize = True
         lblPLdesc.BackColor = Color.Transparent
-        lblPLdesc.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        lblPLdesc.Font = New Font("Segoe UI", 9.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         lblPLdesc.ForeColor = Color.FromArgb(CByte(161), CByte(161), CByte(170))
         lblPLdesc.Location = New Point(37, 70)
         lblPLdesc.Name = "lblPLdesc"
         lblPLdesc.Size = New Size(255, 15)
         lblPLdesc.TabIndex = 1
-        lblPLdesc.Text = "Items in stock, waiting to go on display."
-        ' 
+        lblPLdesc.Text = "Select an item below, set its location, then mark it placed."
+        '
         ' lblPLhandling
-        ' 
+        '
         lblPLhandling.AutoSize = True
         lblPLhandling.BackColor = Color.Transparent
         lblPLhandling.Font = New Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
@@ -425,10 +252,10 @@ Partial Class ucPlacement
         lblPLhandling.Size = New Size(280, 40)
         lblPLhandling.TabIndex = 0
         lblPLhandling.Text = "Item Placement"
-        ' 
+        '
         ' ucPlacement
-        ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        '
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(8), CByte(8), CByte(12))
         Controls.Add(pnlMain)
@@ -436,47 +263,29 @@ Partial Class ucPlacement
         Size = New Size(963, 619)
         pnlMain.ResumeLayout(False)
         pnlMain.PerformLayout()
-        pnlPlacementSummary.ResumeLayout(False)
-        pnlPlacementSummary.PerformLayout()
         pnlTransactions.ResumeLayout(False)
-        pnlTransactions.PerformLayout()
-        pnlPlacementForm.ResumeLayout(False)
-        pnlPlacementForm.PerformLayout()
+        CType(dgvPlaced, ComponentModel.ISupportInitialize).EndInit()
+        CType(dgvAwaiting, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
+        PerformLayout()
     End Sub
 
     Friend WithEvents pnlMain As Panel
-    Friend WithEvents pnlPlacementSummary As Panel
-    Friend WithEvents lblPlacementSummaryStatus As Label
-    Friend WithEvents lblPlacementSummaryInfo As Label
-    Friend WithEvents lblPlacementSummaryTitle As Label
     Friend WithEvents pnlTransactions As Panel
-    Friend WithEvents lblDate3 As Label
-    Friend WithEvents lblStatus3 As Label
-    Friend WithEvents lblQty3 As Label
-    Friend WithEvents lblPLitem3 As Label
-    Friend WithEvents lblDate2 As Label
-    Friend WithEvents lblStatus2 As Label
-    Friend WithEvents lblQty2 As Label
-    Friend WithEvents lblPLitem2 As Label
-    Friend WithEvents lblDate1 As Label
-    Friend WithEvents lblStatus1 As Label
-    Friend WithEvents lblQty1 As Label
-    Friend WithEvents lblPLitem1 As Label
-    Friend WithEvents lblHeaderDate As Label
-    Friend WithEvents lblHeaderStatus As Label
-    Friend WithEvents lblHeaderQty As Label
-    Friend WithEvents lblHeaderItem As Label
+    Friend WithEvents dgvAwaiting As DataGridView
+    Friend WithEvents colItemID As DataGridViewTextBoxColumn
+    Friend WithEvents colItemName As DataGridViewTextBoxColumn
+    Friend WithEvents colCategory As DataGridViewTextBoxColumn
+    Friend WithEvents colQuantity As DataGridViewTextBoxColumn
+    Friend WithEvents colDateAdded As DataGridViewTextBoxColumn
+    Friend WithEvents lblAwaitingHeader As Label
+    Friend WithEvents dgvPlaced As DataGridView
+    Friend WithEvents lblPlacedHeader As Label
     Friend WithEvents lblRecentTitle As Label
-    Friend WithEvents pnlPlacementForm As Panel
-    Friend WithEvents lblPLItemField As Label
-    Friend WithEvents lblPLdesc As Label
-    Friend WithEvents lblPLhandling As Label
-    Friend WithEvents lblPLQty As Label
-    Friend WithEvents lblPLLocation As Label
     Friend WithEvents btnMarkPlaced As Button
     Friend WithEvents txtLocation As TextBox
-    Friend WithEvents txtQty As TextBox
-    Friend WithEvents txtItemName As TextBox
+    Friend WithEvents lblLocation As Label
+    Friend WithEvents lblPLdesc As Label
+    Friend WithEvents lblPLhandling As Label
 
 End Class
